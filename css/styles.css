@@ -103,19 +103,6 @@
   .faq-item:hover {
     background: #eaeaea;
   }
-  footer {
-    margin: 40px 0 10px;
-    font-size: 12px;
-    color: #777;
-  }
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-  @keyframes zoomIn {
-    from { transform: scale(0.5); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-  }
 
   /* Botón de compartir */
   .share-button {
@@ -175,7 +162,7 @@
     max-width: 400px;
     text-align: center;
     box-shadow: 0 8px 32px rgba(255, 255, 255, 0.1);
-border: 1px solid rgba(0, 0, 0, 0.18);
+    border: 1px solid rgba(0, 0, 0, 0.18);
   }
 
   .share-popup-content h2 {
@@ -193,27 +180,24 @@ border: 1px solid rgba(0, 0, 0, 0.18);
     align-items: center;
     gap: 8px;
     margin: 0;
-    padding: 8px;
+    padding: 12px 8px;
     border-radius: 8px;
     transition: all 0.2s ease;
   }
 
   .share-popup-content a img {
-    width: 40px;
-    height: 40px;
-    padding: 12px;
-    border-radius: 50%;
-    background: #f0f0f0;
+    width: 24px;
+    height: 24px;
+    border-radius: 0;
     transition: all 0.2s ease;
   }
 
-  .share-popup-content a:hover img {
-    background: #e0e0e0;
-    transform: scale(1.05);
+  .share-popup-content a:hover {
+    background: rgba(0, 0, 0, 0.05);
   }
 
-  .share-popup-content a:hover {
-    background: transparent;
+  .share-popup-content a:hover img {
+    transform: scale(1.1);
   }
 
   .share-popup-links {
@@ -238,4 +222,18 @@ transition: all 0.3s ease;
   .close-popup:hover {
     opacity: 0.9;
     transform: translateY(-2px);
+  }
+
+  footer {
+    margin: 40px 0 10px;
+    font-size: 12px;
+    color: #777;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes zoomIn {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
   }
