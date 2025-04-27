@@ -14,45 +14,32 @@
 <body>
 
 <header>
-  <img src="images/blue@2x.png" alt="Logo Neaar">
+  <im src="images/blue@2x.png" alt="Logo Neaar">
 </header>
 
 <!-- Botón de compartir -->
 <button class="share-button" id="shareButton">+</button>
-
-<!-- Menú de compartir -->
-<div class="share-menu" id="shareMenu">
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https://neaar.store" target="_blank">
-    <img src="images/facebook-icon.png" alt="Facebook"> Facebook
-  </a>
-  <a href="https://twitter.com/intent/tweet?url=https://neaar.store" target="_blank">
-    <img src="images/twitter-icon.png" alt="Twitter"> Twitter
-  </a>
-  <a href="https://api.whatsapp.com/send?text=https://neaar.store" target="_blank">
-    <img src="images/whatsapp-icon.png" alt="WhatsApp"> WhatsApp
-  </a>
-</div>
 
 <!-- Pop-up de compartir -->
 <div class="share-popup" id="sharePopup">
   <div class="share-popup-content">
     <h2>Compartir</h2>
     <!-- Opción de copiar enlace -->
-    <button id="copyLinkButton" class="copy-link">
-      <img src="images/link-icon.png" alt="" style="width: 20px; height: 20px; margin-right: 10px;"> Copiar enlace
-    </button>
+    <a id="copyLinkButton" class="copy-link" href="#" onclick="copyLink()">
+      <img src="assets/images/blue@2x.png" alt="" style="width: 20px; height: 20px; margin-right: 10px;"> Copiar enlace
+    </a>
     <a href="https://www.facebook.com/sharer/sharer.php?u=https://neaar.store" target="_blank">
-      <img src="images/facebook-icon.png" alt="Facebook"> Facebook
+      <img src="assets/images/blue@2x.png" alt="Facebook"> Facebook
     </a>
     <a href="https://twitter.com/intent/tweet?url=https://neaar.store" target="_blank">
-      <img src="images/twitter-icon.png" alt="Twitter"> Twitter
+      <img src="assets/images/blue@2x.png" alt="Twitter"> Twitter
     </a>
     <a href="https://wa.me/?text=Mira%20mis%20links!%20-%20https://juanoom.github.io/neaar" target="_blank">
-      <img src="images/whatsapp-icon.png" alt="WhatsApp"> WhatsApp
+      <img src="assets/images/blue@2x.png" alt="WhatsApp"> WhatsApp
     </a>
     <!-- Opción de más -->
-    <a href="#" onclick="if (navigator.share) { navigator.share({ title: 'Neaar Links', url: 'https://neaar.store' }); } else { alert('La función de compartir no es compatible con tu navegador.'); }">
-      <img src="images/more-icon.png" alt="Más opciones" style="width: 20px; height: 20px; margin-right: 10px;"> Más opciones
+    <a href="#" onclick="if (navigator.share) { navigator.share({ title: 'Conoce quien es Juanes', url: 'https://links.neaar.store' }); } else { alert('La función de compartir no es compatible con tu navegador.'); }">
+      <img src="assets/images/blue@2x.png" alt="Más opciones" style="width: 20px; height: 20px; margin-right: 10px;"> Más opciones
     </a>
     <button class="close-popup" id="closePopup">Cerrar</button>
   </div>
@@ -65,7 +52,7 @@
 
 <div class="profile">
   <img src="./assets/images/profile image.jpg" alt="Foto de perfil">
-  <h1>@neaar_user</h1>
+  <h1>Juan Millan</h1>
   <p class="desc">Transformando networking con Neaar NFC</p>
 </div>
 
@@ -108,9 +95,9 @@
     <p class="faq-answer" style="display: none;">Sí, toda la información almacenada en la tarjeta está encriptada para garantizar su seguridad.</p>
   </div>
 </div>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/qjnoj4D5cCQ?si=Zz9akXxbJxf9DAb9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 <footer>
-  Powered by Neaar
+  Desarrollado por <a href="neaar.store" target="_blank">neaar</a>
 </footer>
 
 <!-- Animaciones Framer Motion ejemplo futuro -->
