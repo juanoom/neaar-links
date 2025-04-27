@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neaar Links</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0353f2;
+      --background: #f2f0e5;
+      --text: #1a1a1a;
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: var(--background);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+    header img {
+      width: 120px;
+      margin-top: 20px;
+      animation: fadeIn 1s ease forwards;
+    }
+    .profile {
+      margin: 20px 0;
+      text-align: center;
+    }
+    .profile img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid var(--primary);
+      animation: zoomIn 1s ease forwards;
+    }
+    h1 {
+      font-size: 24px;
+      margin: 10px 0 5px;
+    }
+    p.desc {
+      font-size: 14px;
+      color: #555;
+    }
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 100%;
+      max-width: 400px;
+      margin: 30px 0;
+    }
+    .links a {
+      text-decoration: none;
+      background: var(--primary);
+      color: white;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .links a:hover {
+      background: #003bbf;
+      transform: scale(1.05);
+    }
+    .faq {
+      max-width: 600px;
+      width: 100%;
+      margin: 40px 0;
+    }
+    .faq-item {
+      background: white;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      padding: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .faq-item:hover {
+      background: #eaeaea;
+    }
+    footer {
+      margin: 40px 0 10px;
+      font-size: 12px;
+      color: #777;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes zoomIn {
+      from { transform: scale(0.5); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="https://via.placeholder.com/120" alt="Logo Neaar">
+</header>
+
+<div class="profile">
+  <img src="https://via.placeholder.com/100" alt="Foto de perfil">
+  <h1>@neaar_user</h1>
+  <p class="desc">Transformando networking con Neaar NFC</p>
+</div>
+
+<div class="links">
+  <a href="#">Instagram</a>
+  <a href="#">WhatsApp</a>
+  <a href="#">Comprar mi tarjeta NFC</a>
+  <a href="#">Ver Portafolio</a>
+</div>
+
+<div class="faq">
+  <h2>Preguntas Frecuentes</h2>
+  <div class="faq-item">¿Qué es una tarjeta NFC?</div>
+  <div class="faq-item">¿Cómo configuro mi tarjeta?</div>
+  <div class="faq-item">¿Qué pasa si pierdo mi tarjeta?</div>
+  <div class="faq-item">¿La información es segura?</div>
+</div>
+
+<footer>
+  Powered by Neaar
+</footer>
+
+<!-- Animaciones Framer Motion ejemplo futuro -->
+<script>
+// Ejemplo de animación: puedes integrar framer-motion para Web aquí con JS 
+// Pero Figma exporta estático, así que para ahora queda minimalista 😎
+</script>
+
+</body>
+</html>
