@@ -1,7 +1,9 @@
-Welcome to the neaar github
+Welcome to the neaar links github
 
 here we are going to develop some pages
 
-links.neaar.store
+to check te [Website] (https://links.neaar.store)
+
+or 
 
 https://juanoom.github.io/neaar/
