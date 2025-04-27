@@ -18,40 +18,49 @@
 </header>
 
 <!-- Botón de compartir -->
-<button class="share-button" id="shareButton">+</button>
+<button class="share-button" id="shareButton"><img src="./assets/images/icons8-compartir-redondeado-90.png" class="share-button-img"></button>
 
 <!-- Pop-up de compartir -->
 <div class="share-popup" id="sharePopup">
   <div class="share-popup-content">
     <h2>Compartir</h2>
-    <!-- Opción de copiar enlace -->
-    <a id="copyLinkButton" class="copy-link" href="#" onclick="copyLink()">
-      <img src="assets/images/blue@2x.png" alt="" style="width: 20px; height: 20px; margin-right: 10px;"> Copiar enlace
-    </a>
-    <a href="https://www.facebook.com/sharer/sharer.php?u=https://neaar.store" target="_blank">
-      <img src="assets/images/blue@2x.png" alt="Facebook"> Facebook
-    </a>
-    <a href="https://twitter.com/intent/tweet?url=https://neaar.store" target="_blank">
-      <img src="assets/images/blue@2x.png" alt="Twitter"> Twitter
-    </a>
-    <a href="https://wa.me/?text=Mira%20mis%20links!%20-%20https://juanoom.github.io/neaar" target="_blank">
-      <img src="assets/images/blue@2x.png" alt="WhatsApp"> WhatsApp
-    </a>
-    <!-- Opción de más -->
-    <a href="#" onclick="if (navigator.share) { navigator.share({ title: 'Conoce quien es Juanes', url: 'https://links.neaar.store' }); } else { alert('La función de compartir no es compatible con tu navegador.'); }">
-      <img src="assets/images/blue@2x.png" alt="Más opciones" style="width: 20px; height: 20px; margin-right: 10px;"> Más opciones
-    </a>
+    <div class="share-popup-links">
+      <a id="copyLinkButton" class="copy-link" href="#" onclick="copyLink()">
+        <img src="https://img.icons8.com/ios/50/link--v1.png" alt="Copy">
+        Copiar link
+      </a>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https://neaar.store" target="_blank">
+        <img src="https://img.icons8.com/ios/50/facebook--v1.png" alt="Facebook">
+        Facebook
+      </a>
+      <a href="https://twitter.com/intent/tweet?url=https://neaar.store" target="_blank">
+        <img src="https://img.icons8.com/ios/50/twitter--v1.png" alt="Twitter">
+        Twitter
+      </a>
+      <a href="https://wa.me/?text=Mira%20mis%20links!%20-%20https://juanoom.github.io/neaar" target="_blank">
+        <img src="https://img.icons8.com/ios/50/whatsapp--v1.png" alt="WhatsApp">
+        WhatsApp
+      </a>
+      <a href="#" onclick="if (navigator.share) { navigator.share({ title: 'Conoce quien es Juanes', url: 'https://links.neaar.store' }); } else { alert('La función de compartir no es compatible con tu navegador.'); }">
+        <img src="https://img.icons8.com/ios/50/more.png" alt="Más">
+        Más
+      </a>
+    </div>
     <button class="close-popup" id="closePopup">Cerrar</button>
   </div>
 </div>
 
 <!-- Banner -->
-<div class="banner">
-  <p>¡Descubre cómo transformar tu networking con Neaar NFC!</p>
+<div class="banner-img">
+  <img 
+    src="https://www.vmcdn.ca/f/files/sudbury/uploadedImages/news/localNews/2021/06/090621_sunrise.jpg;w=960" 
+    alt="Sunrise Banner" 
+    class="banner-img"
+  >
 </div>
 
 <div class="profile">
-  <img src="./assets/images/profile image.jpg" alt="Foto de perfil">
+  <img src="./assets/images/profile image.jpg" alt="Foto de perfil" class="profile-img">
   <h1>Juan Millan</h1>
   <p class="desc">Transformando networking con Neaar NFC</p>
 </div>
