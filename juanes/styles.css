@@ -1,0 +1,239 @@
+:root {
+    --primary: #1e64f0;
+    --secondary: #ff4081;
+    --background: #292929;
+    --text: #f5f5f5;
+  }
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: var(--background);
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    overflow-x: hidden;
+  }
+  header img {
+    width: 120px;
+    margin-top: 20px;
+    animation: fadeIn 1s ease forwards;
+    will-change: opacity;
+  }
+  .banner-img {
+    width: 100%;
+    max-width: 600px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 16px;
+    display: block;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.10);
+    transition: transform 0.3s;
+  }
+  .banner-img:hover {
+    transform: scale(1.005);
+  }
+  .profile {
+    margin: 20px 0;
+    text-align: center;
+  }
+  .profile-img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--text);
+    animation: zoomIn 1s ease forwards;
+    transition: all 0.3s ease;
+  }
+  .profile-img:hover {
+    transform: scale(1.1);
+    border-color: var(--primary);
+    box-shadow: 0 0 20px rgba(0, 85, 255, 0.3);
+  }
+  h1 {
+    font-size: 24px;
+    margin: 10px 0 5px;
+  }
+  p.desc {
+    font-size: 14px;
+    color: #555;
+  }
+  .top-icons {
+    display: flex;
+    gap: 20px;
+    margin: 20px 0;
+  }
+  .links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 400px;
+    margin: 30px 0;
+  }
+  .links a {
+    text-decoration: none;
+    background: var(--primary);
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  .links a:hover {
+    background: #003bbf;
+    transform: scale(1.05);
+  }
+  .faq {
+    max-width: 600px;
+    width: 100%;
+    margin: 40px 0;
+  }
+  .faq-item {
+    background: white;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .faq-item:hover {
+    background: #eaeaea;
+  }
+
+  /* Botón de compartir */
+  .share-button {
+    position: fixed;
+    top: 29px;
+    right: 29px;
+    background: var(--text);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: all 0.3s ease;
+  }
+
+  .share-button:hover {
+    opacity: 0.5;
+   transform: scale(1.05);
+  }
+
+  .share-button-img {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s;
+  }
+  share-button-img:hover {
+    transform: scale(1.01);
+  }
+  /* Pop-up de compartir */
+  .share-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.084);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+
+  .share-popup-content {
+    background: rgba(255, 255, 255, 0.725);
+    backdrop-filter: blur(15px) saturate(180%);
+    -webkit-backdrop-filter: blur(15px) saturate(180%);
+    border-radius: 16px;
+    padding: 24px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.18);
+  }
+
+  .share-popup-content h2 {
+    color: var(--text);
+    margin-bottom: 20px;
+  }
+
+  .share-popup-content a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 500;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    padding: 12px 8px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+  }
+
+  .share-popup-content a img {
+    width: 24px;
+    height: 24px;
+    border-radius: 0;
+    transition: all 0.2s ease;
+  }
+
+  .share-popup-content a:hover {
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  .share-popup-content a:hover img {
+    transform: scale(1.1);
+  }
+
+  .share-popup-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 16px;
+    margin: 24px 0;
+  }
+
+  .close-popup {
+    background: var(--text);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    cursor: pointer;
+    margin-top: 20px;
+transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+  }
+
+  .close-popup:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+  }
+
+  footer {
+    margin: 40px 0 10px;
+    font-size: 12px;
+    color: #777;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes zoomIn {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }

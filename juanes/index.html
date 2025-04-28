@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neaar Links</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+
+</head>
+
+<body>
+
+<header>
+  <im src="images/blue@2x.png" alt="Logo Neaar">
+</header>
+
+<!-- Banner -->
+<div class="banner-img">
+  <img 
+    src="https://www.vmcdn.ca/f/files/sudbury/uploadedImages/news/localNews/2021/06/090621_sunrise.jpg;w=960" 
+    alt="Sunrise Banner" 
+    class="banner-img"
+  >
+</div>
+
+<div class="profile">
+  <img src="/assets/images/profile image.jpg" alt="Foto de perfil" class="profile-img">
+  <h1>Juan Millan</h1>
+  <p class="desc">Renovando la forma en la que conocemos las tarjetas de presentación</p>
+</div>
+
+<!-- Iconos de redes sociales -->
+<div class="top-icons">
+  <a href="instagram://user?username=hesjuanoom" target="_blank">
+    <img src="https://img.icons8.com/ios/50/instagram-new--v1.png" alt="Instagram" style="width: 40px; height: 40px; margin-right: 10px;">
+  </a>
+  <a href="whatsapp://send?phone=3016227209" target="_blank">
+    <img src="https://img.icons8.com/ios/50/whatsapp--v1.png" alt="WhatsApp" style="width: 40px; height: 40px; margin-right: 10px;">
+  </a>
+  <a href="mailto:sjuaanes@gmail.com" target="_blank">
+    <img src="https://img.icons8.com/ios/50/mail.png" alt="Neaar Store" style="width: 40px; height: 40px; margin-right: 10px;">
+  </a>
+</div>
+
+<div class="links">
+  <a href="instagram.com/hesjuanoom">Instagram</a>
+  <a href="wa.me/3016227209">WhatsApp</a>
+  <a href="neaar.store">Comprar mi tarjeta NFC</a>
+  <a href="#">Ver Portafolio</a>
+</div>
+
+<div class="faq">
+  <h2>Preguntas Frecuentes</h2>
+  <div class="faq-item">
+    ¿Qué es una tarjeta NFC?
+    <p class="faq-answer" style="display: none;">Una tarjeta NFC es un dispositivo que utiliza tecnología de comunicación de campo cercano para transferir información de forma inalámbrica.</p>
+  </div>
+  <div class="faq-item">
+    ¿Cómo configuro mi tarjeta?
+    <p class="faq-answer" style="display: none;">Puedes configurar tu tarjeta NFC utilizando nuestra aplicación móvil o siguiendo las instrucciones en nuestro sitio web.</p>
+  </div>
+  <div class="faq-item">
+    ¿Qué pasa si pierdo mi tarjeta?
+    <p class="faq-answer" style="display: none;">Si pierdes tu tarjeta, puedes desactivarla desde tu cuenta y solicitar una nueva.</p>
+  </div>
+  <div class="faq-item">
+    ¿La información es segura?
+    <p class="faq-answer" style="display: none;">Sí, toda la información almacenada en la tarjeta está encriptada para garantizar su seguridad.</p>
+  </div>
+</div>
+
+
+<!-- Botón de compartir -->
+<button class="share-button" id="shareButton"><img src="/assets/images/icons8-compartir-redondeado-90.png" class="share-button-img"></button>
+
+<!-- Pop-up de compartir -->
+<div class="share-popup" id="sharePopup">
+  <div class="share-popup-content">
+    <h2>Compartir</h2>
+    <div class="share-popup-links">
+      <a id="copyLinkButton" class="copy-link" href="#" onclick="copyLink()">
+        <img src="https://img.icons8.com/ios-filled/50/link--v1.png" alt="Copy">
+        Copiar link
+      </a>
+      <a href="https://wa.me/?text=Mira%20mis%20links!%20-%20https://juanoom.github.io/neaar" target="_blank">
+        <img src="https://img.icons8.com/ios-filled/50/whatsapp--v1.png" alt="WhatsApp">
+        WhatsApp
+      </a>
+      <a href="https://www.messenger.com/share?link=https://neaar.store" target="_blank">
+        <img src="https://img.icons8.com/ios-filled/50/facebook-messenger.png" alt="Messenger">
+        Messenger
+      </a>
+      <a href="#" onclick="if (navigator.share) { navigator.share({ title: 'Conoce quien es Juanes', url: 'https://links.neaar.store' }); } else { alert('La función de compartir no es compatible con tu navegador.'); }">
+        <img src="https://img.icons8.com/ios-filled/50/more.png" alt="Más">
+        Más
+      </a>
+    </div>
+    <button class="close-popup" id="closePopup">Cerrar</button>
+  </div>
+</div>
+
+
+<footer>
+  Desarrollado por <a href="neaar.store" target="_blank">neaar</a>
+</footer>
+
+<!-- Animaciones Framer Motion ejemplo futuro -->
+<script>
+// Ejemplo de animación: puedes integrar framer-motion para Web aquí con JS 
+  // Agregar funcionalidad para mostrar/ocultar respuestas usando delegación de eventos
+  const faqContainer = document.querySelector('.faq');
+  faqContainer.addEventListener('click', (event) => {
+    const item = event.target.closest('.faq-item');
+    if (item) {
+      const answer = item.querySelector('.faq-answer');
+      if (answer) {
+        answer.style.display = answer.style.display === 'none' ? 'block' : 'none';
+      }
+    }
+  });
+
+  // Funcionalidad del botón de compartir
+  const shareButton = document.getElementById('shareButton');
+  const shareMenu = document.getElementById('shareMenu');
+  const sharePopup = document.getElementById('sharePopup');
+  const closePopup = document.getElementById('closePopup');
+
+  shareButton.addEventListener('click', () => {
+    sharePopup.style.display = 'flex';
+  });
+
+  closePopup.addEventListener('click', () => {
+    sharePopup.style.display = 'none';
+  });
+
+  // Cerrar el pop-up si se hace clic fuera del contenido
+  sharePopup.addEventListener('click', (event) => {
+    if (event.target === sharePopup) {
+      sharePopup.style.display = 'none';
+    }
+  });
+
+  // Cerrar el menú si se hace clic fuera de él
+  document.addEventListener('click', (event) => {
+    if (shareMenu && !shareButton.contains(event.target) && !shareMenu.contains(event.target)) {
+      shareMenu.style.display = 'none';
+    }
+  });
+
+  // Funcionalidad para copiar enlace
+  const copyLinkButton = document.getElementById('copyLinkButton');
+  copyLinkButton.addEventListener('click', () => {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText('https://neaar.store').then(() => {
+        alert('¡Enlace copiado al portapapeles!');
+      }).catch(err => {
+        console.error('Error al copiar el enlace: ', err);
+      });
+    } else {
+      alert('La función de copiar no es compatible con tu navegador.');
+    }
+  });
+</script>
+
+</body>
+</html>
