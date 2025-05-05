@@ -2,6 +2,7 @@
     --primary: #1e64f0;
     --secondary: #ff4081;
     --background: white;
+    --darkmode-background: #6a6a6a;
     --text: black;
     --text-secondary: black;
     --buttons: #f5f5dc;
@@ -10,6 +11,7 @@
     margin: 0;
     font-family: 'Poppins', sans-serif;
     background: var(--background);
+    color: var(--darkmode-background);
     color: var(--text);
     display: flex;
     flex-direction: column;
@@ -244,3 +246,10 @@
     from { transform: scale(0.5); opacity: 0; }
     to { transform: scale(1); opacity: 1; }
   }
+  /* Estilo cuando el sistema está en modo oscuro */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--darkmode-background);
+    color: var(--background);
+  }
+}
