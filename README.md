@@ -2,8 +2,19 @@ Welcome to the neaar links github
 
 here we are going to develop some pages
 
-here is the [Website](https://links.neaar.store.)
+here is the [Website](https://link.neaar.co)
 
-or 
+This is the path
 
-https://juanoom.github.io/neaar/
+Main:
+https://link.neaar.co
+
+https://link.neaar.co/alejandro
+
+https://link.neaar.co/vargas
+
+https://link.neaar.co/juanes (modo oscuro)
+
+Clientes:
+
+https://link.neaar.co/Bakery-LM
