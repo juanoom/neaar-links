@@ -161,7 +161,7 @@
   const copyLinkButton = document.getElementById('copyLinkButton');
   copyLinkButton.addEventListener('click', () => {
     if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText('https://neaar.store').then(() => {
+      navigator.clipboard.writeText('https://neaar.co').then(() => {
         alert('¡Enlace copiado al portapapeles!');
       }).catch(err => {
         console.error('Error al copiar el enlace: ', err);
