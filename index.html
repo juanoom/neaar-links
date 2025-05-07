@@ -57,7 +57,7 @@
 
 <div class="links">
   <h3>Contactame</h3>
-  <a href="./assets/IU8W.vcf" onclick="showComingSoon(event)">Intercambiar contacto</a>
+  <a href="#" onclick="showComingSoon(event)">Intercambiar contacto</a>
   <a href="">WhatsApp</a>
   <h3>Fitness links</h3>
   <a href="https://strava.app.link/rXHx3SQeaTb"> 
@@ -192,27 +192,31 @@
     gtag('config', 'G-Q44PS9DFP0');
   </script>
     <script>
-  function showComingSoon(event) {
-    event.preventDefault();
-    
-    // Crear el toast si no existe
-    let toast = document.querySelector('.coming-soon-toast');
-    if (!toast) {
-      toast = document.createElement('div');
-      toast.className = 'coming-soon-toast';
-      toast.textContent = 'Esta función vendrá pronto, por ahora solamente descargarás mi numero';
-      document.body.appendChild(toast);
-    }
-  
-    // Mostrar el toast
-    toast.classList.add('show');
-  
-    // Ocultar después de 3 segundos
-    setTimeout(() => {
-      toast.classList.remove('show');
-    }, 3000);
-  }
-  </script>
+      function showComingSoon(event) {
+        event.preventDefault();
+        
+        // Crear el toast si no existe
+        let toast = document.querySelector('.coming-soon-toast');
+        if (!toast) {
+          toast = document.createElement('div');
+          toast.className = 'coming-soon-toast';
+          toast.textContent = 'Esta función vendrá pronto, por ahora solamente descarga mi contacto';
+          document.body.appendChild(toast);
+        }
+      
+        // Mostrar el toast
+        toast.classList.add('show');
+      
+        // Ocultar después de 2 segundos y luego descargar
+        setTimeout(() => {
+          toast.classList.remove('show');
+          // Iniciar la descarga después de que el toast se oculte
+          setTimeout(() => {
+            window.location.href = './assets/IU8W.vcf';
+          }, 500);
+        }, 2000);
+      }
+      </script>
 
 </body>
 </html>
