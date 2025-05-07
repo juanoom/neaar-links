@@ -57,7 +57,7 @@
 
 <div class="links">
   <h3>Contactame</h3>
-  <a href="" onclick="showComingSoon(event)">Intercambiar contacto</a>
+  <a href="./assets/IU8W.vcf" onclick="showComingSoon(event)">Intercambiar contacto</a>
   <a href="">WhatsApp</a>
   <h3>Fitness links</h3>
   <a href="https://strava.app.link/rXHx3SQeaTb"> 
@@ -191,53 +191,28 @@
     gtag('js', new Date());
     gtag('config', 'G-Q44PS9DFP0');
   </script>
-  <script>
-    function showComingSoon(event) {
-      event.preventDefault();
-      
-      // Crear el toast si no existe
-      let toast = document.querySelector('.coming-soon-toast');
-      if (!toast) {
-        toast = document.createElement('div');
-        toast.className = 'coming-soon-toast';
-        toast.textContent = 'Descargando mi contacto...';
-        document.body.appendChild(toast);
-      }
+    <script>
+  function showComingSoon(event) {
+    event.preventDefault();
     
-      // Mostrar el toast
-      toast.classList.add('show');
-    
-      // Crear el contenido de la vCard
-      const vcard = `BEGIN:VCARD
-    VERSION:3.0
-    FN:Juan Millan
-    ORG:Neaar
-    TITLE:CEO
-    TEL;TYPE=CELL:+573016227209
-    EMAIL:ceo@neaar.co
-    URL:https://neaar.co
-    URL;TYPE=Instagram:https://instagram.com/hesjuanoom
-    END:VCARD`;
-    
-      // Crear el blob y generar URL
-      const blob = new Blob([vcard], { type: 'text/vcard' });
-      const url = window.URL.createObjectURL(blob);
-      
-      // Crear link temporal y simular clic
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = 'juan_millan.vcf';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      window.URL.revokeObjectURL(url);
-    
-      // Ocultar el toast después de 3 segundos
-      setTimeout(() => {
-        toast.classList.remove('show');
-      }, 3000);
+    // Crear el toast si no existe
+    let toast = document.querySelector('.coming-soon-toast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.className = 'coming-soon-toast';
+      toast.textContent = 'Esta función vendrá pronto, por ahora solamente descargarás mi numero';
+      document.body.appendChild(toast);
     }
-    </script>
+  
+    // Mostrar el toast
+    toast.classList.add('show');
+  
+    // Ocultar después de 3 segundos
+    setTimeout(() => {
+      toast.classList.remove('show');
+    }, 3000);
+  }
+  </script>
 
 </body>
 </html>
