@@ -1,7 +1,8 @@
 :root {
     --primary: #ecc903ec;
     --secondary: #4043ff;
-    --background: #c0beac;
+    --background: #9bafbe;
+    --accent:  #1f0e0e;
     --text: #000000;
   }
   body {
@@ -22,7 +23,7 @@
   color: #17638f;
   margin: -75px;
   transition: 20px ;
-  transform: translateX(-250px)
+  transform: translateX(-20px)
 
  }
 
@@ -32,7 +33,7 @@
   font-family: "imperial script", cursive;
   margin: -37px;
   margin-bottom: 0.2px;
-  transform: translatex(-250px);
+  transform: translatex(-24px);
 }
 
 
@@ -97,38 +98,71 @@
     flex-shrink: 0; /* Evita que las imágenes se encojan */
 }
 
-.menu { 
+.menu-text { 
   font-size: 60px;
-  font-family: "cursive";
+  font-family: 'Times New Roman', Times, serif;
   text-align: center;
   color: #1f2077;
   transition: 20px;
   font-stretch: extra-expanded;
-  margin: -80px; 
+  margin: 50px; 
+  transform: translateX(-60px);
 }
 
-  .menu-item { 
-    background-color: #777;
-    justify-content: center; /* Centrar horizontalmente */
-    image-orientation: center;
-    justify-content: center;
-    align-items: center; /* Centrar verticalmente */
-    width: 100%;
-    max-width: 600px;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 16px;
-    display: block;
-    box-shadow: 0 2px 16px rgba(0,0,0,0.10);
-    transition: transform 0.3s;
-    margin: 100px;
+
+
+  .menu-items {
+   display: block;
   }
 
-  .rectangulo-contenedor img {
-    max-width: 100%; /* La imagen no excederá el ancho del rectángulo */
-    max-height: 100%; /* La imagen no excederá la altura del rectángulo */
-    display: block; /* Elimina el espacio extra debajo de la imagen */
+
+
+
+
+
+
+  .menu-1 {
+    width: 600px; /* Ancho del rectángulo principal */
+    height: 150px;
+    border: 1px solid rgb(122, 131, 148); /* Borde para visualizar el rectángulo */
+    padding: 20px; /* Espacio interno alrededor del contenido */
+    display: flex; /* Para alinear las imágenes horizontalmente */
+    justify-content: space-around; /* Espacio igual entre las imágenes */
+    align-items: flex-start; /* Alinea las imágenes y el texto al inicio (arriba) */
+    background-color: #082e5a;
+    border-radius: 25px;
   }
+
+  .imagen-con-texto {
+    display: flex; /* Para alinear la imagen y el texto verticalmente */
+    flex-direction: column; /* Coloca la imagen encima del texto */
+    align-items: center; /* Centra la imagen y el texto horizontalmente */
+    width: 150px; /* Ancho aproximado para cada imagen y texto */
+  }
+
+  .imagen-con-texto img {
+    max-width: 100%; /* La imagen no excederá el ancho de su contenedor */
+    height: auto; /* Mantiene la proporción de la altura */
+    display: block; /* Elimina el espacio extra debajo de la imagen */
+    margin-bottom: 5px; /* Espacio entre la imagen y el texto */
+  }
+
+  .imagen-con-texto p {
+    text-align: center; /* Centra el texto debajo de la imagen */
+    margin-top: 0; /* Elimina el margen superior predeterminado del párrafo */
+    font-size: 0.9em; /* Tamaño de fuente del texto */
+
+    }
+
+
+
+
+
+
+
+
+
+
 
 
 
