@@ -5,8 +5,8 @@
     --text: #1a1a1a;        /* Texto casi negro */
     --text-2: #555;         /* Texto secundario */
     --hover: #0a2e52;       /* Azul hover más oscuro */
-    --buttons: #ffffff;     /* Botones blancos */
-    --share-button: #000000; /* Botón compartir negro */
+    --buttons: white;
+    --share-button: black;
   }
     /* Dark Mode */
     @media (prefers-color-scheme: dark) {
@@ -18,7 +18,7 @@
           --text-2: #b0b0b0;      /* Texto secundario */
           --hover: #3a85cc;       /* Azul hover más claro */
           --buttons: #8d8d8d;     /* Botones grises */
-          --share-button: #0c0c0c; /* Botón compartir negro */
+          --share-button: black;
       } 
     }
   body {
