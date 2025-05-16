@@ -1,31 +1,25 @@
 :root {
-    --primary: #2a6ca5;     
-    --background: #f0f4f8;  
-    --accent: #1c4c7d;      
-    --text: #1a1a1a;        
-    --text-2: #555;         
-    --hover: #0a2e52;       
-    --share-button: #000000; 
-    --faq-answer-text: rgba(255, 255, 255, 0.9);
+    --primary: #2a6ca5;     /* Azul principal */
+    --background: #f0f4f8;  /* Fondo claro azulado */
+    --accent: #1c4c7d;      /* Azul acento más oscuro */
+    --text: #1a1a1a;        /* Texto casi negro */
+    --text-2: #555;         /* Texto secundario */
+    --hover: #0a2e52;       /* Azul hover más oscuro */
+    --buttons: #ffffff;     /* Botones blancos */
+    --share-button: #000000; /* Botón compartir negro */
   }
     /* Dark Mode */
     @media (prefers-color-scheme: dark) {
       :root{
-          --primary: #1c4c7d;     
-          --background: #0f1924;  
-          --accent: #3a85cc;  
-          --text: #f5f5f5;       
-          --text-2: #b0b0b0;      
-          --hover: #3a85cc;       
-          --buttons: #8d8d8d;     
-          --share-button: #0c0c0c; 
+          --primary: #1c4c7d;     /* Azul principal más oscuro */
+          --background: #0f1924;  /* Fondo oscuro azulado */
+          --accent: #3a85cc;      /* Azul acento más claro */
+          --text: #f5f5f5;        /* Texto claro */
+          --text-2: #b0b0b0;      /* Texto secundario */
+          --hover: #3a85cc;       /* Azul hover más claro */
+          --buttons: #8d8d8d;     /* Botones grises */
+          --share-button: #0c0c0c; /* Botón compartir negro */
       } 
-    }
-    /* Para modo claro */
-    @media (prefers-color-scheme: light) {
-      :root {
-        --faq-answer-text: rgba(0, 0, 0, 0.8);
-      }
     }
   body {
     margin: 0;
@@ -324,7 +318,7 @@ body > * {
   max-height: 0;
   overflow: hidden;
   opacity: 0;
-  color: var(--faq-answer-text);
+  color: var(--text-2);
   transition: all 0.3s ease-out;
   font-size: 14px;
   line-height: 1.5;
