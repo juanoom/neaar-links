@@ -1,19 +1,19 @@
 :root {
-    --primary: #fc753b;
+    --primary: #112462;
     --background: #f2f0e5;
-    --accent: #ff4d00;
+    --accent: #003cff;
     --text: #1a1a1a;
     --text-2: #555;
-    --hover: #ff4d00;
+    --hover: #2d1cc6;
     --buttons: #ffffff;
     --share-button: #000000;
   }
     /* Dark Mode */
     @media (prefers-color-scheme: dark) {
       :root{
-          --primary: #a33a10ff;
+          --primary: rgb(16, 33, 163);
           --background: #201911;
-          --accent: #ff0000;
+          --accent: #0e11e6;
           --text: #f5f5f5;
           --text-2: #b0b0b0;
           --hover: #8a4223;
