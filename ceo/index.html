@@ -1,17 +1,80 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <!-- Dynamic data -->
+  <script>
+        const userData = {
+            fullName: "Juan Millan",
+            job: "CEO of neaar",
+            description: "Renovando la forma en la que conocemos las tarjetas de presentación",
+        }
+    </script>
+
+    <!-- Essential Meta Tags -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Neaar Links</title>
+  <title>Juanes</title>
+  <meta name="description" content="Conoce a Juanes, CEO de neaar.">
+  <meta name="theme-color" content="#301912">
+  <meta name="description" content="Juan Millan, CEO y fundador de neaar. Revolucionando las tarjetas de presentación con tecnología NFC. Conecta conmigo para hablar de negocios, tecnología y emprendimiento.">
+  <meta name="keywords" content="Juan Esteban Millan Castro, neaar, CEO, tarjetas NFC, emprendimiento, tecnología, networking, tarjetas de presentación digitales">
+  <meta name="author" content="Juan Esteban Millan">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://links.neaar.co/ceo">
+
+  <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="profile">
+    <meta property="og:title" content="Juan Millan | CEO de neaar">
+    <meta property="og:description" content="Revolucionando las tarjetas de presentación con tecnología NFC. Conecta conmigo para hablar de negocios y tecnología.">
+    <meta property="og:image" content="https://links.neaar.co/ceo/assets/images/profile-image-2.jpg">
+    <meta property="og:url" content="https://links.neaar.co/ceo">
+    <meta property="og:site_name" content="neaar Links">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Juan Millan | CEO de neaar">
+    <meta name="twitter:description" content="Revolucionando las tarjetas de presentación con tecnología NFC. Conecta conmigo para hablar de negocios y tecnología.">
+    <meta name="twitter:image" content="https://links.neaar.co/ceo/assets/images/profile-image-2.jpg">
+
+    <!-- JSON-LD Person Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Juan Millan",
+      "jobTitle": "CEO",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "neaar"
+      },
+      "url": "https://links.neaar.co/ceo",
+      "sameAs": [
+        "https://instagram.com/hesjuanoom",
+        "https://wa.me/3016227209",
+        "https://discordapp.com/users/1058058005544976454"
+      ],
+      "image": "https://links.neaar.co/ceo/assets/images/profile-image-2.jpg",
+      "description": "CEO y fundador de neaar, revolucionando las tarjetas de presentación con tecnología NFC"
+    }
+    </script>
+
+    <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/Favicon 32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/Favicon 180x180.png">
+  <link rel="manifest" href="/assets/site.webmanifest">
+
+  <!-- Preconnect to required origins -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="./styles.css">
 </head>
 
-<body>
-        <div class="cursor"></div>
+<div class="cursor"></div>
+
+<body>     
 <!-- Banner -->
 <div class="banner-img">
   <img 
@@ -23,13 +86,13 @@
 
 <div class="profile">
   <img src="/assets/images/profile image-2.jpg" alt="Foto de perfil" class="profile-img">
-  <h1>Juan Millan</h1> 
+  <h1 data-dynamic="fullName"></h1> 
   <!-- Añadir un emoji (badge) especial si estas en neaar, con un hover que diga el significado-->
-  <p class="job">CEO of neaar<p>
+  <p data-dynamic="job" class="job">JOB<p>
 </div>
 <div class="about-me">
   <h6>Acerca de mi</h6>
-  <p class="desc">Renovando la forma en la que conocemos las tarjetas de presentación <br>lorem ipsum trying a second line</p>
+  <p data-dynamic="description" class="desc">DESCRIPCIÓN</p>
    <!--etiquetas -->
    <div class="tags-Container">
     <div class="tags-scroll">
@@ -169,7 +232,7 @@
         <img src="https://img.icons8.com/ios-filled/50/link--v1.png" alt="Copy">
         Copiar link
       </a>
-      <a href="https://wa.me/?text=Mira%20mis%20links!%20-%20https://juanoom.github.io/neaar" target="_blank">
+      <a href="https://wa.me/?text=Mira%20mis%20links!%20-%20https://link.neaar.co/ceo" target="_blank">
         <img src="https://img.icons8.com/ios-filled/50/whatsapp--v1.png" alt="WhatsApp">
         WhatsApp
       </a>
@@ -177,7 +240,7 @@
         <img src="https://img.icons8.com/ios-filled/50/facebook-messenger.png" alt="Messenger">
         Messenger
       </a>
-      <a href="#" onclick="if (navigator.share) { navigator.share({ title: 'Conoce quien es Juanes', url: 'https://links.neaar.co' }); } else { alert('La función de compartir no es compatible con tu navegador.'); }">
+      <a href="#" onclick="if (navigator.share) { navigator.share({ title: 'Conoce a Juanes', url: 'https://links.neaar.co/ceo' }); } else { alert('La función de compartir no es compatible con tu navegador.'); }">
         <img src="https://img.icons8.com/ios-filled/50/more.png" alt="Más">
         Más
       </a>
@@ -256,7 +319,7 @@ faqContainer.addEventListener('click', (event) => {
   const copyLinkButton = document.getElementById('copyLinkButton');
   copyLinkButton.addEventListener('click', () => {
     if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText('https://neaar.co').then(() => {
+      navigator.clipboard.writeText('https://link.neaar.co/ceo').then(() => {
         alert('¡Enlace copiado al portapapeles!');
       }).catch(err => {
         console.error('Error al copiar el enlace: ', err);
@@ -329,6 +392,43 @@ interactiveElements.forEach(el => {
 
 document.addEventListener('mousedown', () => cursor.classList.add('hover'));
 document.addEventListener('mouseup', () => cursor.classList.remove('hover'));
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const mainContent = document.querySelector('body > *:not(.cursor)');
+        
+        // Replace elements with data-dynamic attribute
+        document.querySelectorAll('[data-dynamic]').forEach(element => {
+            const key = element.getAttribute('data-dynamic');
+            if (element.tagName === 'TITLE' || element.tagName === 'META') {
+                const content = element.getAttribute('content') || element.textContent;
+                const newContent = content.replace(/\{\{(\w+)\}\}/g, (_, key) => userData[key] || '');
+                if (element.tagName === 'META') {
+                    element.setAttribute('content', newContent);
+                } else {
+                    element.textContent = newContent;
+                }
+            } else {
+                element.textContent = userData[key] || '';
+            }
+        });
+
+        // Replace {{variables}} only within the main content
+        if (mainContent) {
+            mainContent.innerHTML = mainContent.innerHTML.replace(
+                /\{\{(\w+)\}\}/g,
+                (_, key) => userData[key] || ''
+            );
+        }
+    });
+    document.querySelectorAll('[data-dynamic]').forEach(element => {
+    const key = element.getAttribute('data-dynamic');
+    if (key === 'description') {
+        element.innerHTML = userData[key].replace(/\n/g, '<br>');
+    } else {
+        element.textContent = userData[key] || '';
+    }
+});
 </script>
 
 </body>

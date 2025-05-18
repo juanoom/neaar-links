@@ -1,24 +1,20 @@
 {
-  "name": "Neaar Links",
-  "short_name": "Neaar",
+  "name": "neaar card",
+  "short_name": "neaar",
   "icons": [
     {
-      "src": "favicon-32x32.png",
+      "src": "assets/images/Favicon 32x32.png",
       "sizes": "32x32",
       "type": "image/png"
     },
     {
-      "src": "favicon-16x16.png",
-      "sizes": "16x16",
-      "type": "image/png"
-    },
-    {
-      "src": "apple-touch-icon.png",
+      "src": "/assets/images/Favicon 180x180.png",
       "sizes": "180x180",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ],
-  "theme_color": "#fc753b",
+  "theme_color": "#0353F2",
   "background_color": "#f2f0e5",
   "display": "standalone"
 }
