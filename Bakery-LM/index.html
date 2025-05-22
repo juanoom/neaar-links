@@ -18,10 +18,10 @@
  <body>
 
   <div class="title-pagina">
-    <h9> L M  </h9>
+    <h10> L M  </h10>
   </div>
   <div class="title-pagina-2"> 
-    <h9> Bakery</h9>
+    <h10> Bakery</h10>
   </div>
 
 
@@ -36,14 +36,89 @@
  
  <div class="profile">
    <img src="./assets/logo.jpg" alt="Foto de perfil" class="profile-img">
-   <p class="profile-desc">
-    la dulzura de la pasteleria,
-    con nuestro toque especial.
-   </p>
+  
  </div>
  
  
  <!-- Iconos de redes sociales -->
+
+<div class="about-me">
+  <h6>la dulzura de la pasteleria, con un toque especial</h6>
+  <p data-dynamic="description" class="desc">ingredientes</p>
+   <!--etiquetas -->
+   <div class="tags-Container">
+    <div class="tags-scroll">
+      <div class="tags">
+        <span class="tag" style="--tag-color: #8737b6;">
+          <span class="dot"></span>
+          Huevos
+        </span>
+        <span class="tag" style="--tag-color: #2196F3;">
+          <span class="dot"></span>
+          Harina
+        </span>
+         <span class="tag" style="--tag-color: #8737b6;">
+        leche
+        </span>
+        <span class="tag" style="--tag-color:  #2196F3;">
+          <span class="dot"></span>
+          polvo para hornear
+        </span>
+        <span class="tag" style="--tag-color:  #8737b6;">
+          <span class="dot"></span>
+          chocolate
+        </span>
+        <span class="tag" style="--tag-color: #2196F3;">
+          <span class="dot"></span>
+          Amor
+        </span>
+         <span class="tag" style="--tag-color: #8737b6;">
+          🫢
+          ingrediente secreto
+          
+        </span>
+         <span class="tag" style="--tag-color: #8737b6;">
+          <span class="dot"></span>
+          Huevos
+        </span>
+        <span class="tag" style="--tag-color: #2196F3;">
+          <span class="dot"></span>
+          Harina
+        </span>
+         <span class="tag" style="--tag-color: #8737b6;">
+        leche
+        </span>
+        <span class="tag" style="--tag-color:  #2196F3;">
+          <span class="dot"></span>
+          polvo para hornear
+        </span>
+        <span class="tag" style="--tag-color:  #8737b6;">
+          <span class="dot"></span>
+          chocolate
+        </span>
+        <span class="tag" style="--tag-color: #2196F3;">
+          <span class="dot"></span>
+          Amor
+        </span>
+         <span class="tag" style="--tag-color: #8737b6;">
+          🫢
+          ingrediente secreto
+          
+        </span>
+       </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+ 
  
 <!--desarrollo del menu-->
 <div>
@@ -83,20 +158,36 @@ setInterval(siguienteImagen, 4000);
 <div class="menu">
   <p class=" menu-text"> degusta tu paladar </p>
 
-<div class="menu-1">
-  <div class="imagen-con-texto">
-    <img src="./assets/menu-1.jpg" alt="Imagen 1">
-    <p>Texto 1</p>
-  </div>
-  <div class="imagen-con-texto">
-    <img src="./assets/menu-2.jpg" alt="Imagen 2">
-    <p>Texto 2</p>
-  </div>
-  <div class="imagen-con-texto">
-    <img src="./assets/menu-3.jpg" alt="Imagen 3">
-    <p>Texto 3</p>
-  </div>
+          <div class="menu-1">
+            <div class="imagen-con-texto">
+              <img src="./assets/menu-1.jpg" alt="Imagen 1">
+               <div class="texto-desplegable">
+                  <h9>obleas</h9>
+               </div>
+         </div>
+           <div class="imagen-con-texto">
+             <img src="./assets/menu-3.jpg" alt="Imagen 2">
+              <div class="texto-desplegable">
+                 <h9>tortas</h9>
+              </div>
+         </div>
+           <div class="imagen-con-texto">
+            <img src="./assets/menu-2.jpg" alt="Imagen 3">
+             <div class="texto-desplegable">
+               <h9>galletas</h9>
+               <h8>  </h8>
+             </div>
+         </div>
 </div>
+
+
+<script>
+  document.querySelectorAll('.imagen-con-texto').forEach(item => {
+    item.addEventListener('click', function() {
+      this.classList.toggle('activo');
+    });
+  });
+</script>
 
 
 
@@ -134,7 +225,7 @@ setInterval(siguienteImagen, 4000);
 
  
  <footer>
-   Desarrollado por <a href="neaar.co" target="_blank">neaar</a>
+   Desarrollado por <a href="neaar.store" target="_blank">neaar</a>
  </footer>
  
  <!-- Animaciones Framer Motion ejemplo futuro -->
