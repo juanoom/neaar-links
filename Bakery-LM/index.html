@@ -12,6 +12,11 @@
    <link href="https://fonts.googleapis.com/css2?family=Imperial+Script&display=swap" rel="stylesheet">
    <link rel="stylesheet" href="./styles.css">
    
+   <script>
+    if (window.location.pathname !== window.location.pathname.toLowerCase()) {
+  window.location.href = window.location.origin + window.location.pathname.toLowerCase();
+}
+</script>
  
  </head>
  
