@@ -57,9 +57,9 @@ body > * {
     z-index: 1;
 }
   .banner-img {
-    width: 100%;
-    max-width: 600px;
-    height: 180px;
+    width: auto;
+    max-width: auto;
+    height: auto;
     object-fit: cover;
     border-radius: 12px;
     display: block;
