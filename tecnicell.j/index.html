@@ -25,7 +25,7 @@
 <!-- Banner -->
 <div class="banner-img">
   <img 
-    src="https://github.com/juanoom/neaar-links/blob/main/tecnicell.j/assets/tecnicell%20v2.png"
+    src="https://raw.githubusercontent.com/juanoom/neaar-links/main/tecnicell.j/assets/tecnicell%20v2.png"
     alt="logo de tecnicell"
     class="banner-img"
   >
@@ -109,9 +109,14 @@
 <!-- Links -->
 
 <div class="links">
-  <h3>Contactanos</h3>
-  <a href="#" onclick="showComingSoon(event)">Intercambiar contacto</a>
-  <a href="https://wa.me/3016227209">WhatsApp</a>
+    <h3>Dirección</h3>
+    <p class="address">Manzana 21 casa 5 protecho 2</p>
+
+    <h3>Contactanos</h3>
+    <a href="#" onclick="showComingSoon(event)">Intercambiar contacto</a>
+    <a href="https://wa.me/3016227209">WhatsApp</a>
+    <h3>Metodos de pago</h3>
+     <a href="#" class="payment-info-btn" id="showPaymentInfo">Ver información bancaria</a>
 </div>
 
 <div class="faq">
@@ -136,7 +141,7 @@
 
 
 <!-- Botón de compartir -->
-<button class="share-button" id="shareButton"><img src="./assets/images/icons8-compartir-redondeado-90.png" class="share-button-img"></button>
+<button class="share-button" id="shareButton"><img src="https://raw.githubusercontent.com/juanoom/neaar-links/main/assets/images/icons8-compartir-redondeado-90.png" class="share-button-img"></button>
 
 <!-- Pop-up de compartir -->
 <div class="share-popup" id="sharePopup">
@@ -147,23 +152,31 @@
         <img src="https://img.icons8.com/ios-filled/50/link--v1.png" alt="Copy">
         Copiar link
       </a>
-      <a href="https://wa.me/?text=Mira%20mis%20links!%20-%20https://juanoom.github.io/neaar" target="_blank">
+      <a href="https://wa.me/+573154098967">
         <img src="https://img.icons8.com/ios-filled/50/whatsapp--v1.png" alt="WhatsApp">
         WhatsApp
-      </a>
-      <a href="https://www.messenger.com/share?link=https://neaar.co" target="_blank">
-        <img src="https://img.icons8.com/ios-filled/50/facebook-messenger.png" alt="Messenger">
-        Messenger
-      </a>
-      <a href="#" onclick="if (navigator.share) { navigator.share({ title: 'Conoce quien es Juanes', url: 'https://links.neaar.co' }); } else { alert('La función de compartir no es compatible con tu navegador.'); }">
-        <img src="https://img.icons8.com/ios-filled/50/more.png" alt="Más">
-        Más
       </a>
     </div>
     <button class="close-popup" id="closePopup">Cerrar</button>
   </div>
 </div>
-
+<div class="payment-popup" id="paymentPopup">
+  <div class="payment-popup-content">
+    <h3>Información bancaria</h3>
+    <div class="payment-info">
+      <div class="payment-method">
+        <h4>Nequi</h4>
+        <p>315 409 8967</p>
+      </div>
+      <div class="payment-method">
+        <h4>Bancolombia</h4>
+        <p>Cuenta de Ahorros</p>
+        <p>xxx xxx xxxx</p>
+      </div>
+    </div>
+    <button class="close-popup" id="closePaymentPopup">Cerrar</button>
+  </div>
+</div>
 
 <footer>
   Desarrollado por <a href="neaar.co">neaar</a>
@@ -261,6 +274,28 @@
         }, 2000);
       }
       </script>
+      <script>
+  // Mostrar/ocultar popup de información bancaria
+  const paymentInfoBtn = document.getElementById('showPaymentInfo');
+  const paymentPopup = document.getElementById('paymentPopup');
+  const closePaymentPopup = document.getElementById('closePaymentPopup');
+
+  paymentInfoBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    paymentPopup.style.display = 'flex';
+  });
+
+  closePaymentPopup.addEventListener('click', () => {
+    paymentPopup.style.display = 'none';
+  });
+
+  // Cerrar al hacer clic fuera del popup
+  paymentPopup.addEventListener('click', (event) => {
+    if (event.target === paymentPopup) {
+      paymentPopup.style.display = 'none';
+    }
+  });
+</script>
 
 </body>
 </html>
