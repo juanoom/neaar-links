@@ -1,22 +1,266 @@
 <!DOCTYPE html>
+<html lang="es">
 <head>
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const currentUrl = window.location.href;
-    const lowercaseUrl = currentUrl.toLowerCase();
-    
-    if (currentUrl !== lowercaseUrl) {
-        const queryAndHash = window.location.search.toLowerCase() + 
-                           window.location.hash.toLowerCase();
-                           
-        window.location.href = window.location.origin + 
-                             window.location.pathname.toLowerCase() + 
-                             queryAndHash;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neaar Links</title>
+  <!-- Script para forzar URLs en minúsculas -->
+  <script>
+    if (window.location.pathname !== window.location.pathname.toLowerCase()) {
+      window.location.href = window.location.origin + window.location.pathname.toLowerCase();
     }
-});
-</script>
+  </script>
+   <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/Favicon 32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/Favicon 180x180.png">
+  <link rel="manifest" href="/assets/site.webmanifest">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    Correct
+<!-- Banner -->
+<div class="banner-img">
+  <img 
+    src="./assets/images/tecnicell v3.png/" 
+    alt="logo de tecnicell"
+    class="banner-img"
+  >
+</div>
+
+<div class="profile">
+  <img src="./assets/images/profile image-2.jpg" alt="Foto de perfil" class="profile-img">
+  <h1>Tecnicell.J</h1> 
+  <!-- Añadir un emoji (badge) especial si estas en neaar, con un hover que diga el significado-->
+  <p class="job">servicio tenico de celulares</p>
+</div>
+<div class="about-me">
+  <h6>sobre nosotros</h6>
+  <p class="desc">gfgfg</p>
+   <!--etiquetas -->
+   <div class="tags-Container">
+    <div class="tags-scroll">
+      <div class="tags">
+        <span class="tag" style="--tag-color: #2196F3;">
+          <span class="dot"></span>
+          Servicio técnico
+        </span>
+        <span class="tag" style="--tag-color: #4CAF50;">
+           <span class="dot"></span>
+          Compra y venta de celulares
+        </span>
+        <span class="tag" style="--tag-color: #7B68EE;">
+          <span class="dot"></span>
+          Reparación de equipos moviles
+        </span>
+        <span class="tag" style="--tag-color: #FF9800;">
+          <span class="dot"></span>
+         Iphone
+        </span>
+        <span class="tag" style="--tag-color: #f96ae6;">
+          <span class="dot"></span>
+          Samsung
+        </span>
+
+      </div>
+      <div class="tags">
+        <span class="tag" style="--tag-color: #2196F3;">
+          <span class="dot"></span>
+          Huawei
+        </span>
+        <span class="tag" style="--tag-color: #4CAF50;">
+         <span class="dot"></span>
+         xiaomi
+        </span>
+        <span class="tag" style="--tag-color: #7B68EE;">
+          <span class="dot"></span>
+          Oppo
+        </span>
+        <span class="tag" style="--tag-color: #FF9800;">
+          <span class="dot"></span>
+         Motorola
+        </span>
+        <span class="tag" style="--tag-color: #E34F26;">
+          <span class="dot"></span>
+          Huawei
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Iconos de redes sociales -->
+<div class="top-icons">
+  <a href="https://wa.me/+573177373903">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+      <path d="M25,2C12.318,2,2,12.318,2,25c0,3.96,1.023,7.854,2.963,11.29L2.037,46.73c-0.096,0.343-0.003,0.711,0.245,0.966 C2.473,47.893,2.733,48,3,48c0.08,0,0.161-0.01,0.24-0.029l10.896-2.699C17.463,47.058,21.21,48,25,48c12.682,0,23-10.318,23-23 S37.682,2,25,2z M36.57,33.116c-0.492,1.362-2.852,2.605-3.986,2.772c-1.018,0.149-2.306,0.213-3.72-0.231 c-0.857-0.27-1.957-0.628-3.366-1.229c-5.923-2.526-9.791-8.415-10.087-8.804C15.116,25.235,13,22.463,13,19.594 s1.525-4.28,2.067-4.864c0.542-0.584,1.181-0.73,1.575-0.73s0.787,0.005,1.132,0.021c0.363,0.018,0.85-0.137,1.329,1.001 c0.492,1.168,1.673,4.037,1.819,4.33c0.148,0.292,0.246,0.633,0.05,1.022c-0.196,0.389-0.294,0.632-0.59,0.973 s-0.62,0.76-0.886,1.022c-0.296,0.291-0.603,0.606-0.259,1.19c0.344,0.584,1.529,2.493,3.285,4.039 c2.255,1.986,4.158,2.602,4.748,2.894c0.59,0.292,0.935,0.243,1.279-0.146c0.344-0.39,1.476-1.703,1.869-2.286 s0.787-0.487,1.329-0.292c0.542,0.194,3.445,1.604,4.035,1.896c0.59,0.292,0.984,0.438,1.132,0.681 C37.062,30.587,37.062,31.755,36.57,33.116z"></path>
+  </svg>
+  </a>
+  <a href="mailto:ceo@neaar.co">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+      <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z"/>
+    </svg>
+  </a>
+</div>
+
+<!-- Links -->
+
+<div class="links">
+  <h3>Contactame</h3>
+  <a href="#" onclick="showComingSoon(event)">Intercambiar contacto</a>
+  <a href="https://wa.me/3016227209">WhatsApp</a>
+</div>
+
+<div class="faq">
+  <h2>Preguntas Frecuentes</h2>
+  <div class="faq-item">
+    ¿Qué es una tarjeta NFC?
+    <p class="faq-answer" style="display: none;">Una tarjeta NFC es un dispositivo que utiliza tecnología de comunicación de campo cercano para transferir información de forma inalámbrica.</p>
+  </div>
+  <div class="faq-item">
+    ¿Cómo configuro mi tarjeta?
+    <p class="faq-answer" style="display: none;">Puedes configurar tu tarjeta NFC utilizando nuestra aplicación móvil o siguiendo las instrucciones en nuestro sitio web.</p>
+  </div>
+  <div class="faq-item">
+    ¿Qué pasa si pierdo mi tarjeta?
+    <p class="faq-answer" style="display: none;">Si pierdes tu tarjeta, puedes desactivarla desde tu cuenta y solicitar una nueva.</p>
+  </div>
+  <div class="faq-item">
+    ¿La información es segura?
+    <p class="faq-answer" style="display: none;">Sí, toda la información almacenada en la tarjeta está encriptada para garantizar su seguridad.</p>
+  </div>
+</div>
+
+
+<!-- Botón de compartir -->
+<button class="share-button" id="shareButton"><img src="./assets/images/icons8-compartir-redondeado-90.png" class="share-button-img"></button>
+
+<!-- Pop-up de compartir -->
+<div class="share-popup" id="sharePopup">
+  <div class="share-popup-content">
+    <h2>Compartir</h2>
+    <div class="share-popup-links">
+      <a id="copyLinkButton" class="copy-link" href="#" onclick="copyLink()">
+        <img src="https://img.icons8.com/ios-filled/50/link--v1.png" alt="Copy">
+        Copiar link
+      </a>
+      <a href="https://wa.me/?text=Mira%20mis%20links!%20-%20https://juanoom.github.io/neaar" target="_blank">
+        <img src="https://img.icons8.com/ios-filled/50/whatsapp--v1.png" alt="WhatsApp">
+        WhatsApp
+      </a>
+      <a href="https://www.messenger.com/share?link=https://neaar.co" target="_blank">
+        <img src="https://img.icons8.com/ios-filled/50/facebook-messenger.png" alt="Messenger">
+        Messenger
+      </a>
+      <a href="#" onclick="if (navigator.share) { navigator.share({ title: 'Conoce quien es Juanes', url: 'https://links.neaar.co' }); } else { alert('La función de compartir no es compatible con tu navegador.'); }">
+        <img src="https://img.icons8.com/ios-filled/50/more.png" alt="Más">
+        Más
+      </a>
+    </div>
+    <button class="close-popup" id="closePopup">Cerrar</button>
+  </div>
+</div>
+
+
+<footer>
+  Desarrollado por <a href="neaar.co">neaar</a>
+</footer>
+
+<!-- Animaciones Framer Motion ejemplo futuro -->
+<script>
+// Ejemplo de animación: puedes integrar framer-motion para Web aquí con JS 
+  // Agregar funcionalidad para mostrar/ocultar respuestas usando delegación de eventos
+  const faqContainer = document.querySelector('.faq');
+  faqContainer.addEventListener('click', (event) => {
+    const item = event.target.closest('.faq-item');
+    if (item) {
+      const answer = item.querySelector('.faq-answer');
+      if (answer) {
+        answer.style.display = answer.style.display === 'none' ? 'block' : 'none';
+      }
+    }
+  });
+
+  // Funcionalidad del botón de compartir
+  const shareButton = document.getElementById('shareButton');
+  const shareMenu = document.getElementById('shareMenu');
+  const sharePopup = document.getElementById('sharePopup');
+  const closePopup = document.getElementById('closePopup');
+
+  shareButton.addEventListener('click', () => {
+    sharePopup.style.display = 'flex';
+  });
+
+  closePopup.addEventListener('click', () => {
+    sharePopup.style.display = 'none';
+  });
+
+  // Cerrar el pop-up si se hace clic fuera del contenido
+  sharePopup.addEventListener('click', (event) => {
+    if (event.target === sharePopup) {
+      sharePopup.style.display = 'none';
+    }
+  });
+
+  // Cerrar el menú si se hace clic fuera de él
+  document.addEventListener('click', (event) => {
+    if (shareMenu && !shareButton.contains(event.target) && !shareMenu.contains(event.target)) {
+      shareMenu.style.display = 'none';
+    }
+  });
+
+  // Funcionalidad para copiar enlace
+  const copyLinkButton = document.getElementById('copyLinkButton');
+  copyLinkButton.addEventListener('click', () => {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText('https://neaar.co').then(() => {
+        alert('¡Enlace copiado al portapapeles!');
+      }).catch(err => {
+        console.error('Error al copiar el enlace: ', err);
+      });
+    } else {
+      alert('La función de copiar no es compatible con tu navegador.');
+    }
+  });
+</script>
+   <!-- Google tag (gtag.js) -->
+   <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q44PS9DFP0">
+  </script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Q44PS9DFP0');
+  </script>
+    <script>
+      function showComingSoon(event) {
+        event.preventDefault();
+        
+        // Crear el toast si no existe
+        let toast = document.querySelector('.coming-soon-toast');
+        if (!toast) {
+          toast = document.createElement('div');
+          toast.className = 'coming-soon-toast';
+          toast.textContent = 'Esta función vendrá pronto, por ahora solamente descarga mi contacto';
+          document.body.appendChild(toast);
+        }
+      
+        // Mostrar el toast
+        toast.classList.add('show');
+      
+        // Ocultar después de 2 segundos y luego descargar
+        setTimeout(() => {
+          toast.classList.remove('show');
+          // Iniciar la descarga después de que el toast se oculte
+          setTimeout(() => {
+            window.location.href = './assets/IU8W.vcf';
+          }, 500);
+        }, 2000);
+      }
+      </script>
+
 </body>
+</html>
