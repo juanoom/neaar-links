@@ -1,9 +1,19 @@
 <!DOCTYPE html>
 <head>
 <script>
-    if (window.location.pathname !== window.location.pathname.toLowerCase()) {
-  window.location.href = window.location.origin + window.location.pathname.toLowerCase();
-}
+  document.addEventListener('DOMContentLoaded', () => {
+    const currentUrl = window.location.href;
+    const lowercaseUrl = currentUrl.toLowerCase();
+    
+    if (currentUrl !== lowercaseUrl) {
+        const queryAndHash = window.location.search.toLowerCase() + 
+                           window.location.hash.toLowerCase();
+                           
+        window.location.href = window.location.origin + 
+                             window.location.pathname.toLowerCase() + 
+                             queryAndHash;
+    }
+});
 </script>
 </head>
 
