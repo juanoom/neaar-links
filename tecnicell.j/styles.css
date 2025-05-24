@@ -57,14 +57,16 @@ body > * {
     z-index: 1;
 }
   .banner-img {
-    width: auto;
-    max-width: auto;
-    height: auto;
-    object-fit: cover;
+    width: 100%;
+    max-width: 600px;
+    height: 180px;
+    object-fit: contain;  /* Cambiado de 'cover' a 'contain' */
     border-radius: 12px;
     display: block;
     box-shadow: 0 2px 16px rgba(0,0,0,0.10);
     transition: transform 0.3s;
+    padding: 20px;  /* Añadido padding para dar espacio alrededor */
+    background-color: white;  /* Añadido fondo blanco */
   }
   .banner-img:hover {
     transform: scale(1.005);
