@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Página no encontrada | neaar</title>
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/Favicon 32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/Favicon 180x180.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #0353f2;
+            --background: #7199e9;
+            --accent: #083389;
+            --text: #1a1a1a;
+            --glass: rgba(255, 255, 255, 0.21);
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(
+                45deg,
+                var(--background) 0%,
+                color-mix(in srgb, var(--background) 97%, var(--accent)) 45%,
+                color-mix(in srgb, var(--background) 95%, var(--accent)) 50%,
+                color-mix(in srgb, var(--background) 97%, var(--accent)) 55%,
+                var(--background) 100%
+            );
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--text);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .error-container {
+            background: var(--glass);
+            backdrop-filter: blur(15px) saturate(180%);
+            -webkit-backdrop-filter: blur(15px) saturate(180%);
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 90%;
+        }
+
+        h1 {
+            font-size: 72px;
+            margin: 0;
+            color: var(--primary);
+        }
+
+        p {
+            font-size: 18px;
+            margin: 20px 0;
+        }
+
+        .home-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .home-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            width: 100px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <img src="./assets/images/blue@2x.png" alt="neaar logo" class="logo">
+        <h1>404</h1>
+        <p>¡Ups! Parece que esta página no existe.</p>
+        <p>La tarjeta que buscas puede haber sido movida o eliminada.</p>
+        <a href="/" class="home-button">Volver al inicio</a>
+    </div>
+</body>
+</html>
