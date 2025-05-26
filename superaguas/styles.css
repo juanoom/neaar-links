@@ -582,7 +582,6 @@ body > * {
     transition: all 0.3s ease;
     font-weight: 300;
 }
-
 .close-popup:hover {
     background-color: rgba(0, 0, 0, 0.1);
     transform: rotate(90deg);
