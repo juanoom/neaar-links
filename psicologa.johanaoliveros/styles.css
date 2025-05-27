@@ -7,6 +7,7 @@
     --hover: #bbdcd8;
     --buttons: #cae0de;
     --share-button: #000000;
+    --glass: rgba(255, 255, 255, 0.691);
   }
     /* Dark Mode */
     @media (prefers-color-scheme: dark) {
@@ -19,6 +20,7 @@
           --hover: #70928f;
           --buttons: #2e2e2e;
           --share-button: #0c0c0c;
+          --glass: rgba(255, 255, 255, 0.21)
       } 
     }
   body {
@@ -251,57 +253,87 @@ body > * {
     fill: var(--text);
     transition: all 0.3s ease;
   }
-    .faq {
+       /* FAQ Styles */
+.faq {
     width: 100%;
     max-width: 400px;
     margin: 40px 0;
-  }
-  
-  .faq h2 {
+}
+
+.faq h2 {
     color: var(--text);
     font-size: 20px;
     margin-bottom: 24px;
     text-align: center;
-  }
-  
-  .faq-item {
-    background: var(--buttons);
-    border-radius: 12px;
-    padding: 16px 20px;
+}
+
+.faq-item {
+    background: var(--glass);
+    backdrop-filter: blur(15px) saturate(180%);
+    -webkit-backdrop-filter: blur(15px) saturate(180%);
+    border-radius: 10px;
+    padding: 20px 50px 20px 20px;
     margin-bottom: 12px;
     cursor: pointer;
     transition: all 0.3s ease;
     font-weight: 500;
     position: relative;
-  }
-  
-  .faq-item::after {
+    overflow: hidden;
+    isolation: isolate;
+    border: 1px solid transparent;
+    background-clip: padding-box;
+}
+
+.faq-item::before {
+    content: '';
+    position: absolute;
+    inset: -100px;
+    background: radial-gradient(
+        circle at var(--mouse-x) var(--mouse-y),
+        color-mix(in srgb, var(--primary) var(--glow-strength), transparent),
+        transparent var(--glow-size)
+    );
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.faq-item::after {
     content: '+';
     position: absolute;
     right: 20px;
-    top: 16px; /* Fixed position instead of using transform */
-    font-size: 20px;
-    color: var(--primary);
+    top: 50%;
+    transform: translateY(-50%);
     width: 24px;
     height: 24px;
+    font-size: 24px;
+    color: var(--primary);
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
     transform-origin: center;
-  }
-  
-  .faq-item.active::after {
-    transform: rotate(45deg);
-  }
-  
-  /* Remove translateY from hover to prevent jumping */
-  .faq-item:hover {
-    background: color-mix(in srgb, var(--buttons) 95%, var(--primary));
+}
+
+.faq-item:hover {
+    background: color-mix(in srgb, var(--glass) 85%, var(--primary));
     transform: translateY(-1px);
-  }
-  
-  .faq-answer {
+    backdrop-filter: blur(15px) saturate(180%);
+    -webkit-backdrop-filter: blur(15px) saturate(180%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary);
+}
+
+.faq-item:hover::before {
+    opacity: 1;
+}
+
+.faq-item.active::after {
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.faq-answer {
     height: 0;
     overflow: hidden;
     transition: all 0.3s ease;
@@ -311,14 +343,36 @@ body > * {
     color: var(--text-2);
     font-size: 14px;
     line-height: 1.6;
-  }
-  
-  .faq-answer.active {
+    transform-origin: top;
+    transform: scaleY(0);
+}
+
+.faq-answer.active {
     height: auto;
     opacity: 1;
     margin-top: 12px;
-  }
+    transform: scaleY(1);
+    animation: bounceIn 0.5s ease forwards;
+}
 
+.faq-answer.closing {
+    transform: scaleY(0);
+    opacity: 0;
+    height: 0;
+    margin-top: 0;
+    animation: bounceOut 0.3s ease forwards;
+}
+
+@keyframes bounceOut {
+    0% { transform: scaleY(1); opacity: 1; }
+    50% { transform: scaleY(0.95); }
+    100% { transform: scaleY(0); opacity: 0; }
+}
+@keyframes bounceIn {
+    0% { transform: translateY(-10px); opacity: 0; }
+    50% { transform: translateY(5px); }
+    100% { transform: translateY(0); opacity: 1; }
+}
   /* Botón de compartir */
   .share-button {
     position: fixed;

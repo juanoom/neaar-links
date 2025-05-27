@@ -310,83 +310,26 @@ body > * {
     opacity: 1;
   }
 
-    .faq {
+    /* FAQ Styles */
+.faq {
     width: 100%;
     max-width: 400px;
     margin: 40px 0;
-  }
-  
-  .faq-item {
-    background: var(--glass);
-    backdrop-filter: blur(15px) saturate(180%);
-    -webkit-backdrop-filter: blur(15px) saturate(180%);
-    border-radius: 15px;
-    padding: 16px 20px;
-    margin-bottom: 12px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-weight: 500;
-    position: relative;
-  }
-  
-  .faq-item::after {
-    content: '+';
-    position: absolute;
-    right: 20px;
-    top: 16px; /* Fixed position instead of using transform */
-    font-size: 20px;
-    color: var(--primary);
-    width: 24px;
-    height: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.3s ease;
-    transform-origin: center;
-  }
-  
-  .faq-item.active::after {
-    transform: rotate(45deg);
-  }
-  
-  .faq-item:hover {
-    background: color-mix(in srgb, var(--glass) 85%, var(--primary));
-    transform: translateY(-1px);
-    backdrop-filter: blur(15px) saturate(180%);
-    -webkit-backdrop-filter: blur(15px) saturate(180%);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .faq-answer {
-    height: 0;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    opacity: 0;
-    margin-top: 0;
-    font-weight: 400;
-    color: var(--text-2);
-    font-size: 14px;
-    line-height: 1.6;
-  }
-  
-  .faq-answer.active {
-    height: auto;
-    opacity: 1;
-    margin-top: 12px;
-    animation: bounceIn 0.5s ease forwards;
-  }
-  .faq h2 {
+}
+
+.faq h2 {
     color: var(--text);
     font-size: 20px;
     margin-bottom: 24px;
     text-align: center;
-  }
-  .faq-item {
+}
+
+.faq-item {
     background: var(--glass);
     backdrop-filter: blur(15px) saturate(180%);
     -webkit-backdrop-filter: blur(15px) saturate(180%);
     border-radius: 10px;
-    padding: 15px;
+    padding: 20px 50px 20px 20px;
     margin-bottom: 12px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -413,6 +356,23 @@ body > * {
     pointer-events: none;
 }
 
+.faq-item::after {
+    content: '+';
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    font-size: 24px;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
 .faq-item:hover {
     background: color-mix(in srgb, var(--glass) 85%, var(--primary));
     transform: translateY(-1px);
@@ -424,17 +384,6 @@ body > * {
 
 .faq-item:hover::before {
     opacity: 1;
-}
-
-.faq-item::after {
-    content: '+';
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 20px;
-    color: var(--primary);
-    transition: transform 0.3s ease;
 }
 
 .faq-item.active::after {
@@ -451,13 +400,30 @@ body > * {
     color: var(--text-2);
     font-size: 14px;
     line-height: 1.6;
+    transform-origin: top;
+    transform: scaleY(0);
 }
 
 .faq-answer.active {
     height: auto;
     opacity: 1;
     margin-top: 12px;
+    transform: scaleY(1);
     animation: bounceIn 0.5s ease forwards;
+}
+
+.faq-answer.closing {
+    transform: scaleY(0);
+    opacity: 0;
+    height: 0;
+    margin-top: 0;
+    animation: bounceOut 0.3s ease forwards;
+}
+
+@keyframes bounceOut {
+    0% { transform: scaleY(1); opacity: 1; }
+    50% { transform: scaleY(0.95); }
+    100% { transform: scaleY(0); opacity: 0; }
 }
   /* Botón de compartir */
   .share-button {
@@ -627,4 +593,37 @@ a, button, [role="button"], input, select, textarea {
 /* Scale effect on hover */
 .cursor.hover {
     transform: scale(1.5);
+}
+
+/* Add this to your styles.css */
+@media (hover: none) and (pointer: coarse) {
+    /* Mobile devices */
+    .cursor {
+        display: none !important;
+    }
+    
+    body {
+        cursor: auto !important;
+    }
+}
+
+@media (pointer: fine) {
+    /* Desktop devices */
+    body, 
+    a, 
+    button, 
+    [role="button"], 
+    .faq-item {
+        cursor: none;
+    }
+}
+
+/* Add specific override for interactive elements */
+@media (hover: hover) {
+    a:hover,
+    button:hover,
+    [role="button"]:hover,
+    .faq-item:hover {
+        cursor: none;
+    }
 }
