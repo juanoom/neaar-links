@@ -1,56 +1,50 @@
 :root {
     /* Tag colors */
-    --primary: #87ceeb;
-    --background: #f0f8ff;
-    --accent: #1e90ff;
-    --text: #2c3e50;
-    --text-2: #5a6c7d;
-    --hover: #1e90ff;
+    --primary: #0066cc;
+    --background: #ffffff;
+    --accent: #0066cc;
+    --text: #000000;
+    --text-2: #4a5568;
+    --hover: #0066cc;
     --buttons: #ffffff;
     --share-button: #4169e1;
-    --glass: rgba(240, 248, 255, 0.85);
+    --glass: rgba(255, 255, 255, 0.75);
     /* other */
-    --mouse-x: 50%;
-    --mouse-y: 50%;
-    --glow-size: 250px;
-    --glow-strength: 40%;
+    --glow-size: 200px;
+    --glow-strength: 25%;
     --cursor-size: 20px;
 }
-
 /* Dark Mode */
 @media (prefers-color-scheme: dark) {
     :root{
-        --primary: #6bb6ff;
-        --background: #0a1628;
-        --accent: #87ceeb;
-        --text: #e8f4f8;
-        --text-2: #a4c3d2;
-        --hover: #5a9fd4;
-        --buttons: #e6f7ff;
+        --primary: #66b3ff;
+        --background: #0f172a;
+        --accent: #3b82f6;
+        --text: #ffffff;
+        --text-2: #cbd5e1;
+        --hover: #60a5fa;
+        --buttons: #f8fafc;
         --share-button: #1e40af;
-        --glass: rgba(106, 182, 255, 0.15);
+        --glass: rgba(15, 23, 42, 0.8);
     }
 }
   body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(
-      45deg,
-      var(--background) 0%,
-      color-mix(in srgb, var(--background) 97%, var(--accent)) 45%,
-      color-mix(in srgb, var(--background) 95%, var(--accent)) 50%,
-      color-mix(in srgb, var(--background) 97%, var(--accent)) 55%,
-      var(--background) 100%
-  );
-  min-height: 100vh;
-  position: relative;
+  background: radial-gradient(
+  ellipse at center,
+  color-mix(in srgb, var(--background) 85%, var(--accent)) 0%,
+  color-mix(in srgb, var(--background) 95%, var(--accent)) 40%,
+  var(--background) 70%
+);
+    min-height: 100vh;
+    position: relative;
     color: var(--text);
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
     overflow-x: hidden;
-    cursor: none;
   }
   body::before {
     content: '';
@@ -108,6 +102,11 @@ body > * {
     border-color: var(--primary);
     box-shadow: 0 0 20px var(--accent);
   }
+  .address {
+    margin: 10px 0;
+    text-align: center;
+  }
+  
   h1 {
     font-size: 24px;
     margin: 10px 0 5px;
@@ -281,7 +280,7 @@ body > * {
 
 .links a:hover::before {
     opacity: 1;
-}
+  }
   .links a svg {
     width: 24px;
     height: 24px;
@@ -630,41 +629,97 @@ body > * {
     color: var(--text-2);
     margin: 5px 0;
 }
-.cursor {
-    width: var(--cursor-size);
-    height: var(--cursor-size);
-    background: color-mix(in srgb, var(--primary) 50%, transparent);
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 9999;
-    transition: transform 0.15s ease;
-    backdrop-filter: invert(1);
-    mix-blend-mode: difference;
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 12px;
 }
 
-/* Show default cursor on interactive elements */
-a, button, [role="button"], input, select, textarea {
-    cursor: none;
+.carousel-track {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
 }
 
-/* Scale effect on hover */
-.cursor.hover {
-    transform: scale(1.5);
+.carousel-img {
+  width: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+  height: 300px;
+}
+.carousel-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
- .address {
-    font-size: 16px;
-    color: var(--text);
-    margin: 5px 0 15px;
-    text-align: center;
-    justify-content: center;
-    font-weight: 600;
-    letter-spacing: 0.2px;
-    padding: 8px 12px;
-    background: color-mix(in srgb, var(--glass) 90%, var(--primary));
-    border-radius: 8px;
-    backdrop-filter: blur(5px);
+.dot.active {
+  background: white;
+  transform: scale(1.2);
+}
+.carousel-buttons {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  pointer-events: none;
+}
+
+.carousel-button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: var(--glass);
+  color: var(--text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  opacity: 0.7;
+  pointer-events: auto;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.carousel-button:hover {
+  opacity: 1;
+  background: var(--glass);
+  transform: scale(1.1);
+  border-color: var(--primary);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .carousel-buttons {
+    display: none;
+  }
+  
+  .dot {
+    width: 8px;
+    height: 8px;
+  }
 }
 .footer {
     margin: 40px 0 10px;
