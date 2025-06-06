@@ -235,60 +235,27 @@ body > * {
     margin: 30px 0;
   }
   .links a {
-    text-decoration: none;
-    background: var(--glass);
-    backdrop-filter: blur(15px) saturate(180%);
-    -webkit-backdrop-filter: blur(15px) saturate(180%);
-    color: var(--text);
-    padding: 15px;
-    border-radius: 10px;
-    text-align: center;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    isolation: isolate;
-    border: 1px solid transparent;
-    background-clip: padding-box;
-  }
-  .links a:hover {
-    background: color-mix(in srgb, var(--glass) 85%, var(--primary));
-    transform: translateY(-1px);
-    backdrop-filter: blur(15px) saturate(180%);
-    -webkit-backdrop-filter: blur(15px) saturate(180%);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-color: var(--primary);
-  }
-  .links a::before {
-    content: '';
-    position: absolute;
-    inset: -100px;
-    background: radial-gradient(
-        circle at var(--mouse-x) var(--mouse-y),
-        color-mix(in srgb, var(--primary) var(--glow-strength), transparent),
-        transparent var(--glow-size)
-    );
-    opacity: 0;
-    transition: opacity 0.3s;
-    z-index: -1;
-    pointer-events: none;
+  text-decoration: none;
+  background: var(--glass);
+  color: var(--text);
+  padding: 18px;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: 600;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
 }
 
-.links a:hover::before {
-    opacity: 1;
-  }
-  .links a svg {
-    width: 24px;
-    height: 24px;
-    vertical-align: middle;
-    fill: var(--text);
-    transition: all 0.3s ease;
-  }
-    .coming-soon-toast {
+.links a:hover {
+  background: var(--primary);
+  color: white;
+  transform: translate(5px, -5px);
+  box-shadow: 0 0 20px var(--primary);
+  border-color: var(--primary);
+}
+  .coming-soon-toast {
     position: fixed;
     bottom: 20px;
     left: 50%;
@@ -315,7 +282,11 @@ body > * {
     max-width: 400px;
     margin: 40px 0;
   }
-  
+  .maps {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }	
   .faq-item {
     background: var(--glass);
     backdrop-filter: blur(15px) saturate(180%);
@@ -689,38 +660,45 @@ body > * {
   border: none;
   border-radius: 50%;
   background: var(--glass);
-  color: var(--text);
+  color: var(--text-2);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
   transition: all 0.3s ease;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  opacity: 0.7;
   pointer-events: auto;
-  border: 2px solid rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
 }
-
+/*...*/
 .carousel-button:hover {
-  opacity: 1;
-  background: var(--glass);
-  transform: scale(1.1);
+  color: var(--primary);
+  box-shadow: 0 0 20px var(--primary);
   border-color: var(--primary);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  background: var(--glass);
 }
 
-@media (max-width: 768px) {
-  .carousel-buttons {
-    display: none;
-  }
-  
-  .dot {
-    width: 8px;
-    height: 8px;
-  }
+/* Rotación del botón prev */
+.carousel-button.prev svg {
+  transform: rotate(180deg);
 }
+
+/* Efectos hover específicos para cada botón */
+.carousel-button.prev:hover {
+  transform: translateY(-4px);
+}
+
+.carousel-button.next:hover {
+  transform: translateY(-4px);
+}
+
+/* Para centrar el enlace después del carrusel */
+.carousel-container {
+  margin-bottom: 20px; /* Añade espacio entre el carrusel y el enlace */
+}
+
+/* Estilo específico para el botón de dirección */
 .footer {
     margin: 40px 0 10px;
     font-size: 12px;
@@ -730,21 +708,31 @@ body > * {
     from { opacity: 0; }
     to { opacity: 1; }
   }
-  @keyframes zoomIn {
-    from { transform: scale(0.5); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
+  @keyframes bounceIn {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
   @keyframes scroll {
     0% {
       transform: translateX(0);
     }
     100% {
-      transform: translateX(-50%);
+      transform: translateX(-100%);
     }
   }
-  @keyframes bounceIn {
-    0% { transform: translateY(-10px); opacity: 0; }
-    50% { transform: translateY(5px); }
-    100% { transform: translateY(0); opacity: 1; }
-}
-
+  @keyframes zoomIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
