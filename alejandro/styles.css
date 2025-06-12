@@ -108,12 +108,12 @@ body > * {
   }
 
   .profile {
-    margin: -70px 0;
+    margin: -110px 0;
     text-align: center;
   }
   .profile-img {
-    width: 200px;
-    height: 195px;
+    width: 220px;
+    height: 215px;
     object-fit: cover;
     border-radius: 50%;
     animation: zoomIn 1.5s ease forwards;
