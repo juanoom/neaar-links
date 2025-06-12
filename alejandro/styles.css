@@ -79,7 +79,7 @@ body > * {
   font-size: 100px;
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   color: #07310a;
-  margin: -5px;
+  margin: 5px;
   transition: 20px ;
   transform: none;
   transition: 20px;
@@ -108,7 +108,7 @@ body > * {
   }
 
   .profile {
-    margin: -110px 0;
+    margin: -50px 0;
     text-align: center;
   }
   .profile-img {
