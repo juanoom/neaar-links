@@ -108,11 +108,11 @@ body > * {
   }
 
   .profile {
-    margin: -50px 0;
+    margin: -110px 0;
     text-align: center;
   }
   .profile-img {
-    width: 220px;
+    width: 220px;   
     height: 215px;
     object-fit: cover;
     border-radius: 50%;
@@ -141,7 +141,7 @@ body > * {
     border-radius: 12px;
     padding: 16px;
     padding-bottom: 27px;
-    margin: 100px;
+    margin: 90px;
     width: 100%;
     max-width: 400px;
     overflow: hidden;
@@ -244,7 +244,7 @@ body > * {
     border-radius: 0%;
     display: block;
     height: 300px;
-    margin: auto; /* Centra el contenedor en la página */
+    margin: 0 auto; /* Centra el contenedor en la página */
     position: relative;
     margin-left: auto;
     margin-right: auto;
