@@ -19,9 +19,9 @@
     /* Dark Mode */
     @media (prefers-color-scheme: dark) {
       :root{
-          --primary: #a33a10ff;
-          --background: #201911;
-          --accent: #ff0000;
+          --primary: rgb(16, 112, 163);
+          --background: #111b20;
+          --accent: #00a6ff;
           --text: #f5f5f5;
           --text-2: #b0b0b0;
           --hover: #8a4223;
@@ -49,7 +49,7 @@
     align-items: center;
     padding: 20px;
     overflow-x: hidden;
-    cursor: none;
+   
   }
   body::before {
     content: '';
@@ -226,6 +226,76 @@ body > * {
     transform: scale(1.06);
     color: var(--primary);
   }
+  .video-section {
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.video-thumbnail {
+    background: var(--glass);
+    backdrop-filter: blur(15px) saturate(180%);
+    -webkit-backdrop-filter: blur(15px) saturate(180%);
+    border-radius: 16px;
+    padding: 12px;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+    display: block;
+    position: relative;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+}
+
+.video-thumbnail:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.video-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.play-button svg {
+    width: 24px;
+    height: 24px;
+    color: white;
+    margin-left: 2px; /* Reduced from 4px to 2px for better centering */
+    position: relative; /* Added for precise positioning */
+    left: 1px; /* Slight adjustment to visually center */
+}
+
+.video-thumbnail:hover .play-button {
+    background: var(--primary);
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.video-section h3 {
+    text-align: left;
+    color: var(--text);
+    margin-bottom: 16px;
+    font-size: 20px;
+    font-weight: 600;
+}
   .links {
     display: flex;
     flex-direction: column;
@@ -536,7 +606,7 @@ body > * {
     padding: 12px 24px;
     cursor: pointer;
     margin-top: 20px;
-transition: all 0.3s ease;
+    transition: all 0.3s ease;
     backdrop-filter: blur(5px);
   }
 
@@ -545,7 +615,7 @@ transition: all 0.3s ease;
     transform: translateY(-2px);
   }
 
-     footer {
+    footer {
     margin-top: 40px;
     margin-bottom: 100px;
     text-align: center;
@@ -617,28 +687,6 @@ footer img {
     100% { transform: translateY(0); opacity: 1; }
 }
 
-.cursor {
-    width: var(--cursor-size);
-    height: var(--cursor-size);
-    background: color-mix(in srgb, var(--primary) 50%, transparent);
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 9999;
-    transition: transform 0.15s ease;
-    backdrop-filter: invert(1);
-    mix-blend-mode: difference;
-}
-
-/* Show default cursor on interactive elements */
-a, button, [role="button"], input, select, textarea {
-    cursor: none;
-}
-
-/* Scale effect on hover */
-.cursor.hover {
-    transform: scale(1.5);
-}
 
 /* Add this to your styles.css */
 @media (hover: none) and (pointer: coarse) {
@@ -649,26 +697,5 @@ a, button, [role="button"], input, select, textarea {
     
     body {
         cursor: auto !important;
-    }
-}
-
-@media (pointer: fine) {
-    /* Desktop devices */
-    body, 
-    a, 
-    button, 
-    [role="button"], 
-    .faq-item {
-        cursor: none;
-    }
-}
-
-/* Add specific override for interactive elements */
-@media (hover: hover) {
-    a:hover,
-    button:hover,
-    [role="button"]:hover,
-    .faq-item:hover {
-        cursor: none;
     }
 }
