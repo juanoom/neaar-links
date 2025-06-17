@@ -1,12 +1,12 @@
 :root {
     /* Tag colors */
     --primary: #0066cc;
-    --background: #ffffff;
+    --background: #F5F5F5;
     --accent: #0066cc;
     --text: #000000;
     --text-2: #4a5568;
     --hover: #0066cc;
-    --buttons: #ffffff;
+    --buttons: #F5F5F5;
     --share-button: #4169e1;
     --glass: rgba(255, 255, 255, 0.75);
     /* other */
@@ -31,12 +31,7 @@
   body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-  background: radial-gradient(
-  ellipse at center,
-  color-mix(in srgb, var(--background) 85%, var(--accent)) 0%,
-  color-mix(in srgb, var(--background) 95%, var(--accent)) 40%,
-  var(--background) 70%
-);
+    background: var(--background);
     min-height: 100vh;
     position: relative;
     color: var(--text);
@@ -53,11 +48,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(
-        circle at 50% 0%,
-        color-mix(in srgb, var(--accent) 15%, transparent) 0%,
-        transparent 60%
-    );
+    background: var(--background);
     pointer-events: none;
     z-index: 0;
 }
@@ -236,16 +227,17 @@ body > * {
   }
   .links a {
   text-decoration: none;
-  background: var(--glass);
+  background: color-mix(in srgb, var(--glass) 90%, var(--primary)); /* Añadimos un toque del color primario */
   color: var(--text);
   padding: 18px;
   border-radius: 12px;
   text-align: center;
   font-weight: 600;
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3); /* Borde más visible */
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Añadimos sombra sutil */
 }
 
 .links a:hover {
@@ -276,6 +268,10 @@ body > * {
   .coming-soon-toast.show {
     opacity: 1;
   }
+
+    .faq {
+  display: none; /* Oculta la sección completamente */
+}
 
     .faq {
     width: 100%;
@@ -429,7 +425,7 @@ body > * {
     opacity: 1;
     margin-top: 12px;
     animation: bounceIn 0.5s ease forwards;
-}
+  }
   /* Botón de compartir */
   .share-button {
     position: fixed;
@@ -570,35 +566,97 @@ body > * {
 }
 
 .payment-popup-content {
-    background: color-mix(in srgb, var(--glass) 90%, transparent);
-    backdrop-filter: blur(15px) saturate(180%);
-    -webkit-backdrop-filter: blur(15px) saturate(180%);
+    background: var(--primary);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-radius: 16px;
-    padding: 24px;
-    width: 90%;
+    padding: 35px;
+    width: calc(100% - 40px);
     max-width: 400px;
     text-align: center;
-    box-shadow: 0 8px 32px rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(0, 0, 0, 0.18);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 0 20px;
+    color: white;
 }
 
 .payment-popup h3 {
-    color: var(--text);
-    margin-bottom: 20px;
+    color: white;
+    margin-bottom: 25px;
+    font-size: 24px;
+    font-weight: 600;
 }
 
 .payment-method {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 25px;
     margin: 15px 0;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.bank-logo {
+    width: auto;
+    height: 45px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    filter: brightness(0) invert(1);
+    margin-bottom: 5px;
+}
+
+/* Ajuste específico para el logo de Nequi */
+.payment-method:first-child .bank-logo {
+    height: 55px; /* Logo de Nequi más grande */
+}
+
+.payment-method:hover .bank-logo {
+    transform: scale(1.05);
 }
 
 .payment-method h4 {
-    color: var(--text);
-    margin: 5px 0;
+    color: white;
+    margin: 0 0 10px 0;
+    font-size: 18px;
 }
 
 .payment-method p {
-    color: var(--text-2);
-    margin: 5px 0;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* Estilo para los números de cuenta */
+.account-number {
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    letter-spacing: 1px;
+    padding: 8px 15px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    margin-top: 5px;
+}
+
+.payment-popup .close-popup {
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    transition: all 0.3s ease;
+}
+
+.payment-popup .close-popup:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(90deg);
 }
 .carousel-container {
   position: relative;
