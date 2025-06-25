@@ -164,7 +164,7 @@ body > * {
     background: color-mix(in srgb, var(--background) 75%, transparent);
     border-radius: 12px;
     padding: 16px;
-    padding-bottom: 27px;
+    padding-bottom: 5px; /* --- CAMBIO: Espacio inferior reducido al mínimo --- */
     margin: 1px 0 30px;
     width: 100%;
     max-width: 550px;
@@ -192,32 +192,35 @@ body > * {
     text-align: start;
     letter-spacing: -0.2px;
   }
-  .tags-container {
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 17px;
+    padding: 0 4px;
+    flex-shrink: 0;
+}
+
+.tags-container {
     width: 100%;
     overflow: hidden;
     position: relative;
     padding: 10px 0;
-  }
+}
 
-  .tags-scroll {
+.tags-scroll {
     display: flex;
-    gap: 16px;
-    animation: scroll 20s linear infinite;
-    width: fit-content; /* Ajustado para el contenido */
-  }
+    width: fit-content;
+    animation: scroll 15s linear infinite;
+    padding-bottom: 10px
+}
 
-  .tags {
-    display: flex;
-    gap: 8px;
-    padding: 0 4px;
-    flex-shrink: 0;
-  }
-
-  .tags-scroll:hover {
+.tags-scroll:hover {
     animation-play-state: paused;
-  }
-  
-  .tag {
+}
+
+.tag {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -232,24 +235,22 @@ body > * {
     vertical-align: middle;
     white-space: nowrap;
     flex-shrink: 0;
-  }
-  .tag .dot {
+}
+
+.tag .dot {
     width: 6px;
     height: 6px;
     border-radius: 50%;
     background-color: var(--tag-color);
     margin-right: 6px;
     flex-shrink: 0;
-  }
-  .tag:hover {
+}
+
+.tag:hover {
     background-color: color-mix(in srgb, var(--tag-color) 20%, transparent);
     transform: translateY(-1px);
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  }
-  p.desc {
-    font-size: 14px;
-    color: var(--text-2);
-  }
+}
   .top-icons {
     display: flex;
     gap: 20px;
@@ -275,13 +276,13 @@ body > * {
   }
   .links a {
     text-decoration: none;
-    background: transparent; /* Quitamos el fondo */
+    background: transparent;
     color: var(--text);
     padding: 16px;
     border-radius: 12px;
     text-align: center;
     font-weight: 600;
-    border: 1.5px solid var(--primary); /* Línea más delgada y color primario */
+    border: 1.5px solid var(--primary);
     transition: all 0.3s ease;
   }
 
@@ -315,91 +316,19 @@ body > * {
   }
 
   .faq {
-    display: none; /* Oculta la sección completamente */
+    display: none;
   }
 
-  .faq {
-    width: 100%;
-    max-width: 400px;
-    margin: 40px 0;
-  }
   .maps {
     align-items: center;
     display: flex;
     justify-content: center;
   }	
-  .faq-item {
-    background: var(--glass);
-    backdrop-filter: blur(15px) saturate(180%);
-    -webkit-backdrop-filter: blur(15px) saturate(180%);
-    border-radius: 15px;
-    padding: 16px 20px;
-    margin-bottom: 12px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-weight: 500;
-    position: relative;
-    overflow: hidden;
-    isolation: isolate;
-    border: 1px solid transparent;
-    background-clip: padding-box;
-  }
   
-  .faq-item::after {
-    content: '+';
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 20px;
-    color: var(--primary);
-    transition: transform 0.3s ease;
-  }
-  
-  .faq-item.active::after {
-    transform: translateY(-50%) rotate(45deg);
-  }
-  
-  .faq-item:hover {
-    background: color-mix(in srgb, var(--glass) 85%, var(--primary));
-    transform: translateY(-1px);
-    backdrop-filter: blur(15px) saturate(180%);
-    -webkit-backdrop-filter: blur(15px) saturate(180%);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-color: var(--primary);
-  }
-  
-  .faq-answer {
-    height: 0;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    opacity: 0;
-    margin-top: 0;
-    font-weight: 400;
-    color: var(--text-2);
-    font-size: 14px;
-    line-height: 1.6;
-  }
-  
-  .faq-answer.active {
-    height: auto;
-    opacity: 1;
-    margin-top: 12px;
-    animation: bounceIn 0.5s ease forwards;
-  }
-  .faq h2 {
-    color: var(--text);
-    font-size: 20px;
-    margin-bottom: 24px;
-    text-align: center;
-  }
-
 /* ================================== */
 /* Popups & Share Button Section      */
-/* Base styles are for LIGHT MODE     */
 /* ================================== */
 
-/* --- Botón de compartir --- */
 .share-button {
   position: fixed;
   top: 29px;
@@ -432,7 +361,6 @@ body > * {
   transition: transform 0.3s;
 }
 
-/* --- Estilos generales de Pop-up --- */
 .share-popup,
 .payment-popup {
   position: fixed;
@@ -447,8 +375,8 @@ body > * {
   background: rgba(0, 0, 0, 0.3);
 }
 
-/* --- Pop-up de métodos de pago (Light Mode) --- */
-.payment-popup-content {
+.payment-popup-content,
+.share-popup-content {
     position: relative;
     background: var(--primary);
     border-radius: 16px;
@@ -462,7 +390,8 @@ body > * {
     color: white;
 }
 
-.payment-popup h3 {
+.payment-popup h3,
+.share-popup-content h2 {
     color: white;
     margin-bottom: 25px;
     font-size: 24px;
@@ -479,28 +408,6 @@ body > * {
     flex-direction: column;
     align-items: center;
     gap: 15px;
-}
-
-/* --- Pop-up de Compartir (Light Mode) - AHORA IGUAL AL DE PAGO --- */
-.share-popup-content {
-    position: relative;
-    background: var(--primary); /* Fondo azul */
-    border-radius: 16px;
-    padding: 35px;
-    width: calc(100% - 40px);
-    max-width: 400px;
-    text-align: center;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    margin: 0 20px;
-    color: white; /* Texto blanco */
-}
-
-.share-popup-content h2 {
-    color: white; /* Título blanco */
-    margin-bottom: 25px;
-    font-size: 24px;
-    font-weight: 600;
 }
 
 .share-popup-links {
@@ -535,11 +442,9 @@ body > * {
   height: 24px;
   border-radius: 0;
   transition: all 0.2s ease;
-  filter: brightness(0) invert(1); /* Iconos en blanco */
+  filter: brightness(0) invert(1);
 }
 
-
-/* --- Contenido interno de Pop-up de Pago (Light Mode) --- */
 .bank-logo {
     width: auto;
     height: 45px;
@@ -554,8 +459,6 @@ body > * {
 .payment-method p { color: rgba(255, 255, 255, 0.9); margin: 0; font-size: 16px; font-weight: 500; }
 .account-number { font-size: 20px; font-weight: 600; color: white; letter-spacing: 1px; padding: 8px 15px; background: rgba(255, 255, 255, 0.15); border-radius: 8px; margin-top: 5px; }
 
-
-/* --- Botón de cerrar Pop-up (Unificado para Light Mode) --- */
 .close-popup {
     position: absolute;
     top: 15px;
@@ -586,7 +489,6 @@ body > * {
 }
 
 /* --- DARK MODE OVERRIDES FOR POPUPS --- */
-
 @media (prefers-color-scheme: dark) {
     .share-popup,
     .payment-popup {
@@ -643,12 +545,10 @@ body > * {
     overflow: hidden;
     border-radius: 12px;
   }
-
   .carousel-track {
     display: flex;
     transition: transform 0.3s ease-in-out;
   }
-
   .carousel-img {
     width: 100%;
     flex-shrink: 0;
@@ -672,7 +572,6 @@ body > * {
     cursor: pointer;
     transition: all 0.3s ease;
   }
-
   .dot.active {
     background: white;
     transform: scale(1.2);
@@ -688,7 +587,6 @@ body > * {
     padding: 0 20px;
     pointer-events: none;
   }
-
   .carousel-button {
     width: 40px;
     height: 40px;
@@ -705,64 +603,31 @@ body > * {
     -webkit-backdrop-filter: blur(8px);
     pointer-events: auto;
     border: 2px solid rgba(255, 255, 255, 0.2);
-    overflow: hidden; /* Añadido */
-    position: relative; /* Añadido */
+    overflow: hidden;
+    position: relative;
   }
-
-  /* Rotación del botón prev */
-  .carousel-button.prev svg {
-    transform: rotate(180deg);
-  }
-
-  /* Efectos hover específicos para cada botón */
-  .carousel-button.prev:hover {
-    transform: translateY(-4px);
-  }
-
-  .carousel-button.next:hover {
-    transform: translateY(-4px);
-  }
-
-  /* Para centrar el enlace después del carrusel */
-  .carousel-container {
-    margin-bottom: 20px; /* Añade espacio entre el carrusel y el enlace */
-  }
-
-  /* Estilo específico para el botón de dirección */
-  .footer {
-      margin: 40px 0 10px;
-      font-size: 12px;
-      color: #777;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    @keyframes bounceIn {
-      0% {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    @keyframes scroll {
-      0% {
+  .carousel-button.prev svg { transform: rotate(180deg); }
+  .carousel-button.prev:hover { transform: translateY(-4px); }
+  .carousel-button.next:hover { transform: translateY(-4px); }
+  .carousel-container { margin-bottom: 20px; }
+  .footer { margin: 40px 0 10px; font-size: 12px; color: #777; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes bounceIn { 0% { opacity: 0; transform: translateY(10px); } 100% { opacity: 1; transform: translateY(0); } }
+  @keyframes zoomIn { 0% { opacity: 0; transform: scale(0.9); } 100% { opacity: 1; transform: scale(1); } }
+  @keyframes scroll {
+    0% {
         transform: translateX(0);
-      }
-      100% {
-        transform: translateX(-100%);
-      }
     }
-    @keyframes zoomIn {
-      0% {
-        opacity: 0;
-        transform: scale(0.9);
-      }
-      100% {
-        opacity: 1;
-        transform: scale(1);
-      }
+    100% {
+        transform: translateX(-50%);
     }
+}
+
+@media (prefers-color-scheme: dark) {
+  .about-me {
+    background: rgba(30, 41, 59, 0.95); /* Gris oscuro, igual a los popups */
+    border: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    backdrop-filter: blur(8px);
+  }
+}

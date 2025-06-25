@@ -47,21 +47,37 @@
       <div class="tags">
         <span class="tag" style="--tag-color: #2196F3;">
           <span class="dot"></span>
-          tratamiento del agua
+          Tratamiento de Aguas
         </span>
         <span class="tag" style="--tag-color: #4CAF50;">
-           <span class="dot"></span>
-           Filtros de agua
+            <span class="dot"></span>
+            Filtros de agua
+        </span>
+        <span class="tag" style="--tag-color: #7B68EE;">
+          <span class="dot"></span>
+          Purificación de agua
+        </span>
+        <span class="tag" style="--tag-color: #FF9800;">
+          <span class="dot"></span>
+         Macro y micro filtración
         </span>
       </div>
       <div class="tags">
         <span class="tag" style="--tag-color: #2196F3;">
           <span class="dot"></span>
-          purificación de agua
+         Tratamiento de Aguas
         </span>
         <span class="tag" style="--tag-color: #4CAF50;">
+           <span class="dot"></span>
+              Filtros de agua
+        </span>
+        <span class="tag" style="--tag-color: #7B68EE;">
           <span class="dot"></span>
-          purificación de agua
+          Purificación de agua
+        </span>
+        <span class="tag" style="--tag-color: #FF9800;">
+          <span class="dot"></span>
+          Macro y micro filtración
         </span>
       </div>
     </div>
@@ -313,6 +329,51 @@ document.addEventListener('DOMContentLoaded', function() {
       // Autoplay
       setInterval(() => goToSlide(currentIndex + 1), 5000);
     }
+
+
+  // LOOP INFINITO DE TAGS
+  const tagsScroll = document.querySelector('.tags-scroll');
+  const tags = tagsScroll.querySelector('.tags');
+
+  // Duplica el contenido para el efecto infinito
+  let tagsClone = tags.cloneNode(true);
+  tagsClone.classList.add('tags-clone');
+  tagsScroll.appendChild(tagsClone);
+
+  // Asegura que el ancho esté bien calculado después de renderizar
+  function getTagsWidth() {
+    return tags.offsetWidth;
+  }
+
+  let scrollAmount = 1;
+  let isPaused = false;
+
+  function loopScroll() {
+    if (!isPaused) {
+      tagsScroll.scrollLeft += scrollAmount;
+      // Cuando termina el primer bloque, vuelve al inicio
+      if (tagsScroll.scrollLeft >= getTagsWidth()) {
+        tagsScroll.scrollLeft -= getTagsWidth();
+      }
+    }
+    requestAnimationFrame(loopScroll);
+  }
+
+  // Pausar al interactuar
+  tagsScroll.addEventListener('mouseenter', () => { isPaused = true; });
+  tagsScroll.addEventListener('mouseleave', () => { isPaused = false; });
+  tagsScroll.addEventListener('touchstart', () => { isPaused = true; });
+  tagsScroll.addEventListener('touchend', () => { isPaused = false; });
+
+  // Ajustar el scroll si la ventana cambia de tamaño
+  window.addEventListener('resize', () => {
+    if (tagsScroll.scrollLeft >= getTagsWidth()) {
+      tagsScroll.scrollLeft = 0;
+    }
+  });
+
+  // Iniciar el loop
+  loopScroll();
 });
 </script>
 
