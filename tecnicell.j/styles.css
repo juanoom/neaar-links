@@ -1,11 +1,11 @@
 :root {
-    --primary: #a4c639;
-    --background: #ffffff;
+    --primary: #006c88ff;
+    --background: #F8F8F4;
     --accent: #003cff;
     --text: #000000;
-    --text-2: #555;
+    --text-2: #ffffff;
     --hover: #2d1cc6;
-    --buttons: #3498db;
+    --buttons: #4cc9b1ff;
     --share-button: #000000;
   }
     /* Dark Mode */
@@ -24,14 +24,7 @@
   body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(
-      45deg,
-      var(--background) 0%,
-      color-mix(in srgb, var(--background) 97%, var(--accent)) 45%,
-      color-mix(in srgb, var(--background) 95%, var(--accent)) 50%,
-      color-mix(in srgb, var(--background) 97%, var(--accent)) 55%,
-      var(--background) 100%
-  );
+    background: var(--background);
   min-height: 100vh;
   position: relative;
     color: var(--text);
@@ -48,7 +41,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-  background: var(--background);
+    background: var(--background);
     pointer-events: none;
     z-index: 0;
 }
@@ -58,22 +51,25 @@ body > * {
 }
   .banner-img {
     width: 100%;
-    max-width: 400px; /* Reducido de 600px a 400px */
-    height: 120px; /* Altura fija */
-    object-fit: contain; /* Cambiado de scale-down a contain */
+    max-width: 400px;
+    height: 120px;
+    object-fit: contain;
     border-radius: 12px;
     display: block;
-    box-shadow: 0 2px 16px rgba(0,0,0,0.10);
+    box-shadow: 0 0px 0px rgba(0,0,0,0.10);
     transition: transform 0.3s;
-    margin: 0 auto; /* Centrar horizontalmente */
-    background-color: white; /* Fondo blanco */
-    padding: 10px; /* Espacio interno */
+    margin: 0 auto;
+    /* Removemos el background-color y padding */
+    background: transparent;
+    padding: 0;
+    /* Añadimos overflow hidden para contener todo dentro del border-radius */
+    overflow: hidden;
   }
   .banner-img:hover {
     transform: scale(1.005);
   }
   .profile {
-    margin: 25px 0 0px;
+    margin: 5px 0 0px;
     text-align: center;
     position: relative;
     z-index: 2;
@@ -84,22 +80,19 @@ body > * {
     align-items: center;
   }
   .profile-img {
-    width: 100px;  /* Tamaño más pequeño */
-    height: 100px; /* Mantener proporción cuadrada */
-    object-fit: contain; /* Cambiado de 'cover' a 'contain' para mostrar imagen completa */
-    border-radius: 50%;
-    border: 3px solid var(--text);
+    width: 100px;
+    height: 100px;
+    object-fit: contain; /* Asegura que la imagen se vea completa */
+    border: 0px solid var(--text);
     animation: zoomIn 1s ease forwards;
     transition: all 0.3s ease;
     margin: 10px 0;
-    background-color: white; /* Fondo blanco para imágenes con transparencia */
-    padding: 5px; /* Pequeño padding para que no toque los bordes */
-  }
-  .profile-img:hover {
-    transform: scale(1.1);
-    border-color: var(--primary);
-    box-shadow: 0 0 20px var(--accent);
-  }
+    background-color: white;
+    padding: 0; /* Quita el padding para que no reduzca el área visible */
+    box-sizing: border-box; /* Asegura que el borde no recorte la imagen */
+    display: block;
+}
+
   h1 {
     font-size: 24px;
     margin: 10px 0 5px;
@@ -111,7 +104,7 @@ body > * {
   }
   p.job {
     font-size: 15px;
-    color: var(--text-2);
+    color: var(--text);
     margin: 2px 0;
   }
   .about-me {
@@ -127,7 +120,7 @@ body > * {
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
   }
-  
+
   .about-me h6 {
     color: var(--text-2);
     font-size: 14px;
@@ -240,11 +233,11 @@ body > * {
     text-align: center;
     margin-bottom: 20px;
     color: var(--text);
-}
+  }
   .links a {
     text-decoration: none;
     background: var(--primary);
-    color: var(--text);
+    color: var(--text-2);
     padding: 15px;
     border-radius: 10px;
     text-align: center;
@@ -298,138 +291,222 @@ body > * {
     max-width: 600px;
     width: 100%;
     margin: 40px 0;
-  }
-  .faq-item {
-    background: var(--buttons);
+    display: none; /* Oculto por defecto */
+}
+
+.faq-item {
+    background: color-mix(in srgb, var(--buttons) 50%, transparent);
     border-radius: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     padding: 15px;
     cursor: pointer;
     transition: all 0.3s ease;
-  }
-  .faq-item:hover {
-    opacity: 0.8;
-  }
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(5px);
+}
 
-  /* Botón de compartir */
-  .share-button {
-    position: fixed;
-    top: 29px;
-    right: 29px;
-    background: var(--share-button);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
+.faq-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.faq-question {
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+    color: var(--text);
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
+}
+
+.faq-question::after {
+    content: '+';
     font-size: 20px;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    transition: all 0.3s ease;
-  }
+    transition: transform 0.3s ease;
+}
 
-  .share-button:hover {
-    opacity: 0.5;
-   transform: scale(1.05);
-  }
+.faq-item.active .faq-question::after {
+    transform: rotate(45deg);
+}
 
-  .share-button-img {
-    width: 24px;
-    height: 24px;
-    transition: transform 0.3s;
-  }
-  .share-button-img:hover {
-    transform: scale(1.01);
-  }
-  /* Pop-up de compartir */
-  .share-popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.084);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-  }
+.faq-answer {
+    margin: 0;
+    padding-top: 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    color: var(--text);
+    transition: all 0.3s ease-out;
+    font-size: 14px;
+    line-height: 1.5;
+}
 
-  .share-popup-content {
-    background: rgba(255, 255, 255, 0.725);
-    backdrop-filter: blur(15px) saturate(180%);
-    -webkit-backdrop-filter: blur(15px) saturate(180%);
+.faq-answer.show {
+    max-height: 200px;
+    opacity: 1;
+    padding-top: 15px;
+    animation: bounceIn 0.5s ease-out;
+}
+  .share-button {
+  position: fixed;
+  top: 29px;
+  right: 29px;
+  background: var(--share-button);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.share-button:hover {
+  opacity: 0.8;
+  transform: scale(1.05);
+}
+
+.share-button-img {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s;
+}
+
+.share-popup,
+.payment-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.payment-popup-content,
+.share-popup-content {
+    position: relative;
+    background: var(--primary);
     border-radius: 16px;
-    padding: 24px;
-    width: 90%;
+    padding: 35px;
+    width: calc(100% - 40px);
     max-width: 400px;
     text-align: center;
-    box-shadow: 0 8px 32px rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(0, 0, 0, 0.18);
-  }
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 0 20px;
+    color: white;
+}
 
-  .share-popup-content h2 {
-    color: black;
-    margin-bottom: 20px;
-  }
+.payment-popup h3,
+.share-popup-content h2 {
+    color: white;
+    margin-bottom: 25px;
+    font-size: 24px;
+    font-weight: 600;
+}
 
-  .share-popup-content a {
-    text-decoration: none;
-    color: black;
-    font-weight: 500;
-    font-size: 12px;
+.payment-method {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    margin: 15px 0;
+    border-radius: 12px;
+    transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
-    margin: 0;
-    padding: 12px 8px;
-    border-radius: 8px;
-    transition: all 0.2s ease;
-  }
+    gap: 15px;
+}
 
-  .share-popup-content a img {
-    width: 24px;
-    height: 24px;
-    border-radius: 0;
-    transition: all 0.2s ease;
-  }
+.share-popup-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
 
-  .share-popup-content a:hover {
-    background: rgba(0, 0, 0, 0.05);
-  }
+.share-popup-content a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 8px;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  background: rgba(255, 255, 255, 0.1);
+}
 
-  .share-popup-content a:hover img {
-    transform: scale(1.1);
-  }
+.share-popup-content a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
 
-  .share-popup-links {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-    gap: 16px;
-    margin: 24px 0;
-  }
+.share-popup-content a img {
+  width: 24px;
+  height: 24px;
+  border-radius: 0;
+  transition: all 0.2s ease;
+  filter: brightness(0) invert(1);
+}
 
-  .close-popup {
-    background: var(--share-button);
-    color: white;
+.bank-logo {
+    width: auto;
+    height: 45px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    filter: brightness(0) invert(1);
+    margin-bottom: 5px;
+}
+.payment-method:first-child .bank-logo { height: 55px; }
+.payment-method:hover .bank-logo { transform: scale(1.05); }
+.payment-method h4 { color: white; margin: 0 0 10px 0; font-size: 18px; }
+.payment-method p { color: rgba(255, 255, 255, 0.9); margin: 0; font-size: 16px; font-weight: 500; }
+.account-number { font-size: 20px; font-weight: 600; color: white; letter-spacing: 1px; padding: 8px 15px; background: rgba(255, 255, 255, 0.15); border-radius: 8px; margin-top: 5px; }
+
+.close-popup {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: transparent;
     border: none;
-    border-radius: 8px;
-    padding: 12px 24px;
+    font-size: 26px;
     cursor: pointer;
-    margin-top: 20px;
-transition: all 0.3s ease;
-    backdrop-filter: blur(5px);
-  }
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
 
-  .close-popup:hover {
-    opacity: 0.9;
-    transform: translateY(-2px);
-  }
+.payment-popup .close-popup,
+.share-popup .close-popup {
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+}
+.payment-popup .close-popup:hover,
+.share-popup .close-popup:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(90deg);
+}
+
   footer {
     margin: 40px 0 10px;
     font-size: 12px;
@@ -451,24 +528,38 @@ transition: all 0.3s ease;
       transform: translateX(-50%);
     }
   }
-  .payment-popup {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-    justify-content: center;
-    align-items: center;
+  @keyframes bounceIn {
+    0% { transform: translateY(-10px); opacity: 0; }
+    50% { transform: translateY(5px); }
+    100% { transform: translateY(0); opacity: 1; }
 }
 
-.payment-popup-content {
-    background: var(--buttons);
-    padding: 20px;
-    border-radius: 12px;
-    max-width: 300px;
-    width: 90%;
-    text-align: center;
+.brand-logos {
+  display: flex;
+  flex-wrap: nowrap;           /* No permite que bajen */
+  overflow-x: auto;            /* Scroll horizontal si no caben */
+  gap: 24px;
+  margin: 8px 0 10px 0;
+  width: 100%;
+  max-width: 400px;            /* O el ancho que prefieras */
+  justify-content: flex-start; /* Alinea a la izquierda */
+  align-items: center;
+  scrollbar-width: none;       /* Oculta barra en Firefox */
 }
+.brand-logos::-webkit-scrollbar {
+  display: none;               /* Oculta barra en Chrome/Safari */
+}
+.brand-logo {
+  width: 80px;         /* Tamaño fijo horizontal */
+  height: 48px;        /* Tamaño fijo vertical */
+  object-fit: contain; /* Ajusta la imagen dentro del área sin deformarla */
+  filter: drop-shadow(0 0px 0px rgba(0,0,0,0.08));
+  background: white;
+  border-radius: 8px;
+  padding: 6px 12px;
+  display: block;
+}
+
+
+
+
