@@ -87,10 +87,10 @@ body > * {
     animation: zoomIn 1s ease forwards;
     transition: all 0.3s ease;
     margin: 10px 0;
-    background-color: white;
     padding: 0; /* Quita el padding para que no reduzca el área visible */
     box-sizing: border-box; /* Asegura que el borde no recorte la imagen */
     display: block;
+    background: transparent;
 }
 
   h1 {
@@ -558,6 +558,7 @@ body > * {
   border-radius: 8px;
   padding: 6px 12px;
   display: block;
+  background: transparent;
 }
 
 
