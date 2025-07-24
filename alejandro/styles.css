@@ -396,7 +396,7 @@ html {
 }
 
 .card-product {
-    background-image: url(./assets/images/producto_5.svg), linear-gradient(#ffffff80, #5f5c5c80);
+    background-image: url(./assets/producto_5.svg), linear-gradient(#ffffff80, #5f5c5c80);
     background-color: #fff;
     display: flex;
     margin: 0 auto;
