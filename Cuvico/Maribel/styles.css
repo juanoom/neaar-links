@@ -1,54 +1,9 @@
-/* 1. Import the fonts */
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
-@font-face {
-    font-family: 'TurismoCF';
-    src: url('/assets/fonts/TurismoCF-Bold.otf') format('opentype');
-    font-weight: bold;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'TurismoCF';
-    src: url('/assets/fonts/TurismoCF-Regular.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-/* 2. Apply Turismo CF to titles */
-h1, h2, h3, h4, h5, h6,
-.profile h1,
-.faq h2 {
-    font-family: 'TurismoCF', 'Rubik', Arial, sans-serif;
-    letter-spacing: 0.5px;
-}
-
-/* 3. Apply Rubik to paragraphs, subtitles, and general text */
-body,
-p,
-.about-me,
-.links a,
-.tag,
-.faq-answer,
-footer,
-button,
-input,
-select,
-textarea {
-    font-family: 'Rubik', Arial, sans-serif;
-}
-
-/* 4. Optionally, make sure .profile uses TurismoCF for the name and Rubik for the job */
-.profile h1 {
-    font-family: 'TurismoCF', 'Rubik', Arial, sans-serif;
-}
-.profile .job {
-    font-family: 'Rubik', Arial, sans-serif;
-}
 
 :root {
     /* Tag colors */
     --primary: #f6cd22;
     --background: #ef8242;
-    --accent: #f8ce00;
+    --accent: #f7d500;
     --text: #1a1a1a;
     --text-2: #2e436e;
     --hover: #ff4d00;
@@ -65,9 +20,9 @@ textarea {
     /* Dark Mode */
     @media (prefers-color-scheme: dark) {
       :oot{
-          --primary: #a33a10ff;
-          --background: #201911;
-          --accent: #ff0000;
+          --primary: #f6cd22;
+          --background: #08509e;
+          --accent: #2d98cd;
           --text: #f5f5f5;
           --text-2: #b0b0b0;
           --hover: #8a4223;
@@ -81,10 +36,10 @@ textarea {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(
     110deg,
-    #ef8242 0%,      /* background base */
-    #ef8242 35%,     /* first color stop */
-    #ef8242 60%,     /* second color stop */
-    #f7d500 100%     /* end color */
+    var(--accent) 0%,      /* background base */
+    var(--background) 35%,    /* first color stop */
+    var(--background) 60%,   /* second color stop */
+    var(--accent) 100%      /* end color */
     );
   min-height: 100vh;
   position: relative;
@@ -704,4 +659,50 @@ body {
     .faq-item:hover {
         cursor: pointer;
     }
+}
+
+/* 1. Import the fonts */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
+@font-face {
+    font-family: 'TurismoCF';
+    src: url('/assets/fonts/TurismoCF-Bold.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'TurismoCF';
+    src: url('/assets/fonts/TurismoCF-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 2. Apply Turismo CF to titles */
+h1, h2, h3, h4, h5, h6,
+.profile h1,
+.faq h2 {
+    font-family: 'TurismoCF', 'Rubik', Arial, sans-serif;
+    letter-spacing: 0.5px;
+}
+
+/* 3. Apply Rubik to paragraphs, subtitles, and general text */
+body,
+p,
+.about-me,
+.links a,
+.tag,
+.faq-answer,
+footer,
+button,
+input,
+select,
+textarea {
+    font-family: 'Rubik', Arial, sans-serif;
+}
+
+/* 4. Optionally, make sure .profile uses TurismoCF for the name and Rubik for the job */
+.profile h1 {
+    font-family: 'TurismoCF', 'Rubik', Arial, sans-serif;
+}
+.profile .job {
+    font-family: 'Rubik', Arial, sans-serif;
 }
