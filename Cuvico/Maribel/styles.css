@@ -19,7 +19,7 @@
   }
     /* Dark Mode */
     @media (prefers-color-scheme: dark) {
-      :oot{
+      :root{
           --primary: #f6cd22;
           --background: #08509e;
           --accent: #2d98cd;
