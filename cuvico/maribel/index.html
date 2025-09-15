@@ -81,7 +81,7 @@
 
 <div class="cursor"></div>
 
-<body class="bg1">     
+<body class="bg4">     
 <!-- Banner -->
 <div class="banner-img">
   <img 
@@ -249,6 +249,19 @@
   </div>
 </div>
 
+<body id="page" class="bg1">
+  <h1>Choose your gradient!</h1>
+  <button onclick="setBg('bg1')">Gradient 1</button>
+  <button onclick="setBg('bg2')">Gradient 2</button>
+  <button onclick="setBg('bg3')">Gradient 3</button>
+  <button onclick="setBg('bg4')">Gradient 4</button>
+
+  <script>
+    function setBg(bgClass) {
+      document.getElementById('page').className = bgClass;
+    }
+  </script>
+</body>
 
 <footer>
   Desarrollado por <a href="https://neaar.co">neaar</a>

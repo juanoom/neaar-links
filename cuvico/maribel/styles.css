@@ -19,7 +19,7 @@
   }
     /* Dark Mode */
     @media (prefers-color-scheme: dark) {
-      :root{
+      :oot{
           --primary: #f6cd22;
           --background: #9e2108;
           --accent: #2d98cd;
@@ -31,11 +31,52 @@
           --glass: rgba(255, 255, 255, 0.21)
       } 
     }
+  /* Global Styles */
+  .bg1 {
+    background: linear-gradient(
+    100deg,
+    var(--background) 0%,           /* background base */
+    var(--background) 35%,    /* first color stop */
+    var(--background) 70%,   /* second color stop */
+    var(--accent) 100%      /* end color */
+    );
+  }
+  .bg2 {
+    background: linear-gradient(
+    100deg,
+    #2d98cd 0%,           /* background base */
+    #08509e 35%,    /* first color stop */
+    #08509e 70%,   /* second color stop */
+    #2d98cd 100%      /* end color */
+    );
+  }
+  .bg3 {
+    background: linear-gradient(
+      45deg,
+      #e5e8f2 0%,
+      color-mix(in srgb, #e5e8f2 97%, #08509e) 45%,
+      color-mix(in srgb, #e5e8f2 95%, #08509e) 50%,
+      color-mix(in srgb, #e5e8f2 97%, #08509e) 55%,
+      #e5e8f2 100%
+    )
+  }
+  .bg4 {
+  background: linear-gradient(
+    160deg,
+    #0d0d0f 0%,
+    color-mix(in srgb, #0d0d0f 75%, #2d98cd) 25%,
+    color-mix(in srgb, #0d0d0f 60%, #2d98cd) 50%,
+    color-mix(in srgb, #0d0d0f 75%, #2d98cd) 75%,
+    #0d0d0f 100%
+  );
+  color: #ffffff;
+  min-height: 100vh;
+  }
   body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(
-    110deg,
+    ackground: linear-gradient(
+    100deg,
     var(--accent) 0%,      /* background base */
     var(--background) 35%,    /* first color stop */
     var(--background) 60%,   /* second color stop */
@@ -122,7 +163,7 @@ body > * {
     margin: 2px 0;
   }
   .about-me {
-    background: color-mix(in srgb, var(--background) 75%, transparent);
+    background: color-mix(in srgb, #ffffff6e 75%, transparent);
     border-radius: 12px;
     padding: 16px;
     padding-bottom: 27px;
