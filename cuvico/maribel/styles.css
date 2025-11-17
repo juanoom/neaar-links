@@ -164,28 +164,15 @@ body > * {
   .tags-container {
     width: 100%;
     overflow: hidden;
+    position: relative;
+    padding: 10px 0;
     margin: 20px 0;
-    mask-image: linear-gradient(
-        to right,
-        transparent,
-        black 10%,
-        black 90%,
-        transparent
-    );
-    -webkit-mask-image: linear-gradient(
-        to right,
-        transparent,
-        black 10%,
-        black 90%,
-        transparent
-    );
   }
   
   .tags-scroll {
     display: flex;
     gap: 16px;
-    animation: scrollTags 30s linear infinite;
-    width: fit-content;
+    animation: scroll 30s linear infinite;
   }
   
   .tags-scroll:hover {
