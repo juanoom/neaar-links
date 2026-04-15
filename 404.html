@@ -1,100 +1,385 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Página no encontrada | neaar</title>
-    
-    <!-- Favicons -->
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/Favicon 32x32.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/Favicon 180x180.png">
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --primary: #0353f2;
-            --background: #7199e9;
-            --accent: #083389;
-            --text: #1a1a1a;
-            --glass: rgba(255, 255, 255, 0.21);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 — Esta página no tiene NFC | neaar</title>
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
 
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(
-                45deg,
-                var(--background) 0%,
-                color-mix(in srgb, var(--background) 97%, var(--accent)) 45%,
-                color-mix(in srgb, var(--background) 95%, var(--accent)) 50%,
-                color-mix(in srgb, var(--background) 97%, var(--accent)) 55%,
-                var(--background) 100%
-            );
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: var(--text);
-            padding: 20px;
-            text-align: center;
-        }
+  :root {
+    --cream: #F0EDE6;
+    --cream-dark: #E8E4DA;
+    --blue: #0353F2;
+    --dark: #0A0A0A;
+    --muted: #888;
+  }
 
-        .error-container {
-            background: var(--glass);
-            backdrop-filter: blur(15px) saturate(180%);
-            -webkit-backdrop-filter: blur(15px) saturate(180%);
-            padding: 40px;
-            border-radius: 20px;
-            max-width: 500px;
-            width: 90%;
-        }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px;
+    overflow: hidden;
+    position: relative;
+  }
 
-        h1 {
-            font-size: 72px;
-            margin: 0;
-            color: var(--primary);
-        }
+  /* ── GRAIN TEXTURE ── */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 0; opacity: .5;
+  }
 
-        p {
-            font-size: 18px;
-            margin: 20px 0;
-        }
+  /* ── FLOATING PET DECORATIONS ── */
+  .pet-bg {
+    position: fixed;
+    pointer-events: none; z-index: 0;
+  }
+  .pet-tl {
+    top: -60px; left: -60px; opacity: .06;
+    animation: floatA 8s ease-in-out infinite;
+  }
+  .pet-br {
+    bottom: -80px; right: -60px; opacity: .08;
+    animation: floatB 10s ease-in-out infinite;
+    transform: rotate(-20deg);
+  }
+  .pet-tr {
+    top: 30px; right: -40px; opacity: .04;
+    animation: floatC 12s ease-in-out infinite;
+    transform: rotate(15deg);
+  }
 
-        .home-button {
-            display: inline-block;
-            padding: 12px 24px;
-            background: var(--primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 10px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
+  @keyframes floatA { 0%,100%{transform:translateY(0) rotate(-10deg)} 50%{transform:translateY(20px) rotate(-10deg)} }
+  @keyframes floatB { 0%,100%{transform:translateY(0) rotate(-20deg)} 50%{transform:translateY(-24px) rotate(-20deg)} }
+  @keyframes floatC { 0%,100%{transform:translateY(0) rotate(15deg)} 50%{transform:translateY(16px) rotate(15deg)} }
 
-        .home-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+  /* ── MAIN CONTENT ── */
+  .container {
+    position: relative; z-index: 1;
+    display: flex; flex-direction: column;
+    align-items: center; text-align: center;
+    max-width: 600px;
+    animation: fadeUp .8s cubic-bezier(.16,1,.3,1) both;
+  }
 
-        .logo {
-            width: 100px;
-            height: auto;
-            margin-bottom: 20px;
-        }
-    </style>
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(32px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── NFC TAP ILLUSTRATION ── */
+  .nfc-scene {
+    position: relative;
+    width: 200px; height: 200px;
+    margin-bottom: 32px;
+    animation: fadeUp .8s .1s cubic-bezier(.16,1,.3,1) both;
+  }
+
+  /* Phone */
+  .phone-mock {
+    position: absolute;
+    bottom: 0; left: 50%; transform: translateX(-50%);
+    width: 88px; height: 140px;
+    background: #1a1a1a;
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(0,0,0,.18), 0 0 0 2px #333;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .phone-screen {
+    width: 72px; height: 124px;
+    background: #fff;
+    border-radius: 10px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 6px; padding: 10px;
+  }
+  .phone-screen-icon { font-size: 1.8rem; }
+  .phone-screen-text {
+    font-family: 'Syne', sans-serif;
+    font-size: .45rem; font-weight: 800;
+    color: #dc2626; text-align: center; line-height: 1.3;
+  }
+  .phone-screen-sub {
+    font-size: .4rem; color: #999; text-align: center; line-height: 1.3;
+  }
+
+  /* NFC Card */
+  .nfc-card-mock {
+    position: absolute;
+    top: 0; right: 0;
+    width: 110px; height: 70px;
+    background: var(--blue);
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(3,83,242,.35);
+    display: flex; flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    transform: rotate(12deg);
+    animation: cardWiggle 3s ease-in-out infinite;
+  }
+  @keyframes cardWiggle {
+    0%,100% { transform: rotate(12deg) translateY(0); }
+    50%      { transform: rotate(14deg) translateY(-6px); }
+  }
+  .card-brand {
+    font-family: 'Syne', sans-serif; font-weight: 800;
+    color: #fff; font-size: .55rem; line-height: 1.2; letter-spacing: .5px;
+  }
+  .card-bottom { display: flex; justify-content: flex-end; align-items: flex-end; gap: 6px; }
+  .card-nfc { color: rgba(255,255,255,.7); font-size: .9rem; }
+  .card-dots {
+    display: grid; grid-template-columns: repeat(3,5px); gap: 2px;
+  }
+  .card-dots span {
+    width: 4px; height: 4px; border-radius: 50%;
+    background: rgba(255,255,255,.5);
+  }
+
+  /* Ripple waves from card */
+  .ripples {
+    position: absolute;
+    top: 20px; right: 60px;
+    display: flex; gap: 5px; align-items: center;
+  }
+  .ripple {
+    width: 2px; border-radius: 1px;
+    background: var(--blue); opacity: 0;
+    animation: rippleUp 1.6s ease-in-out infinite;
+  }
+  .ripple:nth-child(1) { height: 10px; animation-delay: 0s; }
+  .ripple:nth-child(2) { height: 16px; animation-delay: .15s; }
+  .ripple:nth-child(3) { height: 22px; animation-delay: .3s; }
+  @keyframes rippleUp {
+    0%   { opacity: 0; transform: scaleY(.5); }
+    40%  { opacity: .7; transform: scaleY(1); }
+    100% { opacity: 0; transform: scaleY(.5); }
+  }
+
+  /* ── 404 NUMBER ── */
+  .error-num {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(6rem, 18vw, 10rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -4px;
+    color: var(--dark);
+    position: relative;
+    margin-bottom: 8px;
+    animation: fadeUp .8s .15s cubic-bezier(.16,1,.3,1) both;
+  }
+  /* The "0" in the middle becomes the NFC signal */
+  .error-num .mid-zero {
+    color: var(--blue);
+    position: relative;
+    display: inline-block;
+  }
+  .error-num .mid-zero::after {
+    content: ')  )';
+    position: absolute;
+    right: -28px; top: 50%; transform: translateY(-50%);
+    font-size: .28em; color: var(--blue);
+    opacity: .5; letter-spacing: -2px;
+    animation: nfcPulse 2s ease-in-out infinite;
+  }
+  @keyframes nfcPulse { 0%,100%{opacity:.3} 50%{opacity:.8} }
+
+  /* ── COPY ── */
+  .headline {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    line-height: 1.15;
+    margin-bottom: 14px;
+    animation: fadeUp .8s .2s cubic-bezier(.16,1,.3,1) both;
+  }
+  .sub {
+    font-size: 1rem;
+    color: var(--muted);
+    line-height: 1.7;
+    max-width: 440px;
+    margin-bottom: 36px;
+    animation: fadeUp .8s .25s cubic-bezier(.16,1,.3,1) both;
+  }
+  .sub em { font-style: normal; color: var(--dark); font-weight: 500; }
+
+  /* ── CTA ── */
+  .cta-wrap {
+    display: flex; flex-direction: column; align-items: center; gap: 16px;
+    animation: fadeUp .8s .3s cubic-bezier(.16,1,.3,1) both;
+  }
+  .btn-home {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--dark); color: #fff;
+    border: none; border-radius: 100px;
+    padding: 14px 32px;
+    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1rem;
+    cursor: pointer; text-decoration: none;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .btn-home:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(0,0,0,.18);
+  }
+  .btn-home svg { width: 18px; height: 18px; fill: #fff; }
+
+  .error-code {
+    font-size: .78rem; color: var(--muted);
+    font-family: monospace; letter-spacing: 1px;
+  }
+  .error-code span { color: var(--blue); }
+
+  /* ── LOGO TOP ── */
+  .logo-wrap {
+    position: fixed; top: 24px; left: 32px; z-index: 10;
+    animation: fadeUp .6s cubic-bezier(.16,1,.3,1) both;
+  }
+  .logo-wrap svg { height: 22px; width: auto; }
+
+  /* ── BOTTOM HINT ── */
+  .bottom-hint {
+    position: fixed; bottom: 28px;
+    font-size: .75rem; color: rgba(0,0,0,.25);
+    animation: fadeUp .8s .5s cubic-bezier(.16,1,.3,1) both;
+    font-family: 'Syne', sans-serif; letter-spacing: .5px;
+  }
+</style>
 </head>
 <body>
-    <div class="error-container">
-        <img src="/assets/images/blue@2x.png" alt="neaar logo" class="logo">
-        <h1>404</h1>
-        <p>¡Ups! Parece que esta página no existe.</p>
-        <p>La tarjeta que buscas puede haber sido movida o eliminada.</p>
-        <a href="/" class="home-button">Volver al inicio</a>
+
+  <!-- Floating pet decorations -->
+  <div class="pet-bg pet-tl">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 231.3 92.6" width="320">
+      <rect x="169.8" y="0"    width="30.8" height="30.8" fill="#0353F2"/>
+      <rect x="139"   y="30.8" width="30.8" height="30.8" fill="#0353F2"/>
+      <rect x="200.5" y="30.8" width="30.8" height="30.8" fill="#0353F2"/>
+      <rect x="30.8"  y="0"    width="30.8" height="30.8" fill="#0353F2"/>
+      <rect x="0"     y="30.8" width="30.8" height="30.8" fill="#0353F2"/>
+      <rect x="61.5"  y="30.8" width="30.8" height="30.8" fill="#0353F2"/>
+      <rect x="92.3"  y="74"   width="46.7" height="18.6" fill="#0353F2"/>
+    </svg>
+  </div>
+  <div class="pet-bg pet-br">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 231.3 92.6" width="380">
+      <rect x="169.8" y="0"    width="30.8" height="30.8" fill="#0353F2"/>
+      <rect x="139"   y="30.8" width="30.8" height="30.8" fill="#0353F2"/>
+      <rect x="200.5" y="30.8" width="30.8" height="30.8" fill="#0353F2"/>
+      <rect x="30.8"  y="0"    width="30.8" height="30.8" fill="#0353F2"/>
+      <rect x="0"     y="30.8" width="30.8" height="30.8" fill="#0353F2"/>
+      <rect x="61.5"  y="30.8" width="30.8" height="30.8" fill="#0353F2"/>
+      <rect x="92.3"  y="74"   width="46.7" height="18.6" fill="#0353F2"/>
+    </svg>
+  </div>
+  <div class="pet-bg pet-tr">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 231.3 92.6" width="260">
+      <rect x="169.8" y="0"    width="30.8" height="30.8" fill="#0353F2"/>
+      <rect x="139"   y="30.8" width="30.8" height="30.8" fill="#0353F2"/>
+      <rect x="200.5" y="30.8" width="30.8" height="30.8" fill="#0353F2"/>
+      <rect x="30.8"  y="0"    width="30.8" height="30.8" fill="#0353F2"/>
+      <rect x="0"     y="30.8" width="30.8" height="30.8" fill="#0353F2"/>
+      <rect x="61.5"  y="30.8" width="30.8" height="30.8" fill="#0353F2"/>
+      <rect x="92.3"  y="74"   width="46.7" height="18.6" fill="#0353F2"/>
+    </svg>
+  </div>
+
+  <!-- Logo -->
+  <a href="/" class="logo-wrap">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 585.28 103.7">
+      <g fill="#0353F2">
+        <path d="M0,98V0H79.13V19.31H98.65V98H77V21.21H21.43V98Z"/>
+        <path d="M137.26,98V78.92H118V19.31h19.31V0h59.82V19.31H216.6v21H195V21.21H139.38v17H178v21.4H139.38V76.8H195V57.28h21.6V78.71H197.08V98Z"/>
+        <path d="M486.63,98V19.31h19.3V0h59.83V19.31h19.52v21H563.64V21.21H508.05V98Z"/>
+        <rect x="405.72" y="11.11" width="30.76" height="30.76"/>
+        <rect x="374.96" y="41.87" width="30.76" height="30.76"/>
+        <rect x="436.49" y="41.87" width="30.76" height="30.76"/>
+        <path d="M297.48,41.85h0q-7.56-.14-15.36-.14c-5.21,0-10.32,0-15.37.14V72.64H236V41.88h30.76V11.13h30.76V41.85Z"/>
+        <polygon points="328.25 41.85 328.25 72.61 297.48 72.61 297.48 41.88 297.51 41.88 297.51 41.85 328.25 41.85"/>
+        <rect x="328.27" y="85.14" width="46.69" height="18.56"/>
+      </g>
+    </svg>
+  </a>
+
+  <!-- Main -->
+  <div class="container">
+
+    <!-- NFC Scene illustration -->
+    <div class="nfc-scene">
+      <!-- Ripple waves -->
+      <div class="ripples">
+        <div class="ripple"></div>
+        <div class="ripple"></div>
+        <div class="ripple"></div>
+      </div>
+
+      <!-- NFC Card floating -->
+      <div class="nfc-card-mock">
+        <div class="card-brand">MAKE<br>IT<br>HAPPEN</div>
+        <div class="card-bottom">
+          <div class="card-dots">
+            <span></span><span></span><span></span>
+            <span></span><span></span><span></span>
+            <span></span><span></span><span></span>
+          </div>
+          <div class="card-nfc">))</div>
+        </div>
+      </div>
+
+      <!-- Phone showing 404 error -->
+      <div class="phone-mock">
+        <div class="phone-screen">
+          <div class="phone-screen-icon">😵</div>
+          <div class="phone-screen-text">PÁGINA<br>NO ENCONTRADA</div>
+          <div class="phone-screen-sub">ni con NFC la<br>hubieras abierto</div>
+        </div>
+      </div>
     </div>
+
+    <!-- 404 number -->
+    <div class="error-num">
+      4<span class="mid-zero">0</span>4
+    </div>
+
+    <!-- Headline -->
+    <h1 class="headline">
+      Creo que te perdiste<br>un poco.
+    </h1>
+
+    <!-- Subtext -->
+    <p class="sub">
+      Intentaste hacer tap en algo que <em>no existe</em>. Tranquilo —
+      hasta la tecnología más avanzada tiene días malos.
+      La tuya no: vuelve al inicio y pide tu neaar card.
+    </p>
+
+    <!-- CTA -->
+    <div class="cta-wrap">
+      <a href="/" class="btn-home">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+        </svg>
+        Volver al inicio
+      </a>
+      <span class="error-code">ERROR <span>404</span> · neaar.co</span>
+    </div>
+
+  </div>
+
+  <!-- Bottom hint -->
+  <div class="bottom-hint">Un tap fue suficiente para perderte — uno más te lleva de vuelta</div>
+
 </body>
 </html>
